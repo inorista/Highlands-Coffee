@@ -1,0 +1,76 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
+import 'package:seemon/constants/padding_constants.dart';
+import 'package:seemon/constants/style_constants..dart';
+
+class register_promo extends StatelessWidget {
+  const register_promo({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(kPaddingDefault),
+      height: 100,
+      decoration: BoxDecoration(
+        color: Color(0xffFEFCEF),
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 76,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(100),
+              border: Border.all(color: Color(0xffc4c4c4), width: 3),
+            ),
+            child: Center(
+              child: Image.asset("assets/images/member_card.png"),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: kPaddingDefault),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Spacer(),
+                Row(
+                  children: [
+                    Text(
+                      "ĐĂNG KÝ TÀI KHOẢN MỚI",
+                      style: kStyleRegisterText,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: kPaddingDefault),
+                      child: SizedBox(
+                        height: 16,
+                        width: 16,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            shadowColor: Colors.transparent,
+                            elevation: 0,
+                            shape: CircleBorder(),
+                            padding: EdgeInsets.zero,
+                            primary: Color(0xffbfbcb5), // <-- Button color
+                            onPrimary: Color(0xff7c786f), // <-- Splash color
+                          ),
+                          child: Icon(EvaIcons.arrowIosForward, size: 12, color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Spacer(flex: 3),
+                Text("TẶNG MÃ GIẢM GIÁ 50% CHÀO\nBẠN MỚI", style: kStylePromoText),
+                Spacer(flex: 4),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
