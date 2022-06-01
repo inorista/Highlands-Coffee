@@ -4,10 +4,15 @@ import 'package:get/get.dart';
 import 'package:seemon/constants/style_constants..dart';
 import 'package:seemon/constants/padding_constants.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:seemon/controllers/detail_controllers.dart';
 import 'package:seemon/models/thucuong.dart';
 import 'package:seemon/constants/string_format.dart';
 import 'package:intl/intl.dart';
-import 'package:seemon/views/details/components/options.dart';
+import 'package:seemon/views/detail/components/add_button.dart';
+import 'package:seemon/views/detail/components/minus_button.dart';
+import 'package:seemon/views/detail/components/options.dart';
+import 'package:seemon/views/detail/components/plus_button.dart';
+import 'package:seemon/views/detail/components/quantity_text.dart';
 
 // Price Format
 
@@ -17,7 +22,8 @@ class DetailScreen extends GetWidget {
   @override
   Widget build(BuildContext context) {
     final currencyFormatter = NumberFormat('###,000', 'ID');
-
+    DetailController _controller = Get.put(DetailController());
+    _controller.getThucuong(thucuong);
     return Scaffold(
       backgroundColor: Color(0xffF8F1E7),
       resizeToAvoidBottomInset: false,
@@ -27,8 +33,7 @@ class DetailScreen extends GetWidget {
           onDismissed: () => Get.back(),
           direction: DismissiblePageDismissDirection.down,
           isFullScreen: true,
-          dragSensitivity: 0.3,
-          minScale: 0.5,
+          dragSensitivity: 0.4,
           child: Stack(
             children: [
               Positioned.fill(
@@ -87,7 +92,7 @@ class DetailScreen extends GetWidget {
                                       style: kStyleDetailName_Price,
                                     ),
                                     Text(
-                                      "${currencyFormatter.format(thucuong.listPrice[0]).toString()}₫",
+                                      "${currencyFormatter.format(thucuong.listPrice[0].toDouble())}₫",
                                       style: kStyleDetailName_Price,
                                     ),
                                   ],
@@ -103,8 +108,14 @@ class DetailScreen extends GetWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     ...List.generate(
-                                      thucuong.listPrice.length,
-                                      (index) => options(),
+                                      thucuong.listSize.length,
+                                      (i) => options(
+                                        index: i,
+                                        size: thucuong.listSize[i],
+                                        press: () => _controller.onChangeIndex(i, thucuong),
+                                        thucuong: thucuong,
+                                        fixedPrice: thucuong.listPrice[i].toDouble(),
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -115,6 +126,47 @@ class DetailScreen extends GetWidget {
                       ),
                     );
                   },
+                ),
+              ),
+              Positioned.fill(
+                top: MediaQuery.of(context).size.height / 1.3,
+                child: Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border(
+                      top: BorderSide(width: 0.5, color: Colors.black26),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        spreadRadius: 0.2,
+                        blurRadius: 4,
+                        offset: const Offset(0, -0.1), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Spacer(),
+                      Row(
+                        children: [
+                          Spacer(flex: 4),
+                          minus_button(),
+                          Spacer(),
+                          quantity_text(),
+                          Spacer(),
+                          plus_button(),
+                          Spacer(flex: 4),
+                        ],
+                      ),
+                      Spacer(),
+                      add_button(),
+                      Spacer(),
+                    ],
+                  ),
                 ),
               ),
               Positioned(

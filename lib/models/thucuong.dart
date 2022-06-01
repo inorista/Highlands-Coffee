@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class thucuong {
   final String tenThucuong;
   final List<String> listSize;
-  final List<double> listPrice;
+  final List<num> listPrice;
   final String anhThucuong;
   final String theloai;
   thucuong({

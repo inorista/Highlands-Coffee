@@ -19,7 +19,6 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
   @override
   void onInit() async {
     _pageController = PageController();
-
     super.onInit();
   }
 
@@ -40,7 +39,7 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
             anhThucuong: data["anhThucuong"],
             theloai: data["theloai"],
             listSize: data["listSize"].cast<String>(),
-            listPrice: data["listPrice"].cast<double>(),
+            listPrice: data["listPrice"].cast<num>(),
           ),
         )
         .toList();

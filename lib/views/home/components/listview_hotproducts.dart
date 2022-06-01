@@ -26,7 +26,7 @@ class listview_hot_products extends StatelessWidget {
           );
         }
         return Container(
-          height: 180,
+          height: 190,
           width: double.infinity,
           padding: const EdgeInsets.symmetric(horizontal: kPaddingListView),
           child: ListView.builder(
@@ -44,9 +44,9 @@ class listview_hot_products extends StatelessWidget {
               child: Hero(
                 tag: _controller.dataThucuong[index].tenThucuong,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   child: Container(
-                    width: 130,
+                    width: 140,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.white,
@@ -63,7 +63,7 @@ class listview_hot_products extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Flexible(
-                          flex: 4,
+                          flex: 5,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10),
                             child: Container(

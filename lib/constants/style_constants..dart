@@ -67,3 +67,15 @@ var kStyleVAT = GoogleFonts.montserrat(
   fontWeight: FontWeight.w400,
   color: Colors.black,
 );
+
+var kStyleQuantity = GoogleFonts.notoSans(
+  fontSize: 22,
+  fontWeight: FontWeight.w700,
+  color: Color(0xffB3282D),
+);
+
+var kAddButtonText = GoogleFonts.montserrat(
+  fontSize: 13,
+  fontWeight: FontWeight.w500,
+  color: Colors.white,
+);
