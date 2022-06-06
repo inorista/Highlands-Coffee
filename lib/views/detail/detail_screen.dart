@@ -5,7 +5,6 @@ import 'package:seemon/constants/style_constants..dart';
 import 'package:seemon/constants/padding_constants.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:seemon/controllers/detail_controllers.dart';
-import 'package:seemon/models/thucuong.dart';
 import 'package:seemon/constants/string_format.dart';
 import 'package:intl/intl.dart';
 import 'package:seemon/views/detail/components/add_button.dart';
@@ -16,7 +15,7 @@ import 'package:seemon/views/detail/components/quantity_text.dart';
 
 // Price Format
 
-class DetailScreen extends GetWidget {
+class DetailScreen extends StatelessWidget {
   const DetailScreen({Key? key, this.thucuong}) : super(key: key);
   final thucuong;
   @override
@@ -33,7 +32,8 @@ class DetailScreen extends GetWidget {
           onDismissed: () => Get.back(),
           direction: DismissiblePageDismissDirection.down,
           isFullScreen: true,
-          dragSensitivity: 0.4,
+          dragSensitivity: 0.6,
+          minScale: 0.4,
           child: Stack(
             children: [
               Positioned.fill(

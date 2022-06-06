@@ -5,6 +5,7 @@ import 'package:seemon/constants/style_constants..dart';
 import 'package:seemon/controllers/home_controllers.dart';
 import 'package:seemon/constants/string_format.dart';
 import 'package:seemon/views/detail/detail_screen.dart';
+import 'package:seemon/views/home/components/items_hotproduct.dart';
 
 class listview_hot_products extends StatelessWidget {
   const listview_hot_products({
@@ -29,11 +30,23 @@ class listview_hot_products extends StatelessWidget {
           height: 190,
           width: double.infinity,
           padding: const EdgeInsets.symmetric(horizontal: kPaddingListView),
-          child: ListView.builder(
+          child: ListView(
             physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
             scrollDirection: Axis.horizontal,
-            itemCount: _controller.dataThucuong.length,
-            itemBuilder: (context, index) => InkWell(
+            children: [
+              ...List.generate(
+                _controller.dataThucuong.length,
+                (index) => items_hotproduct(index: index),
+              ),
+            ],
+            /*itemCount: _controller.dataThucuong.length,
+              itemBuilder: (context, index) => InkWell(
+              borderRadius: BorderRadius.circular(10),
+              highlightColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              splashColor: Colors.transparent,
+              onTapDown: (_) => print("TapDown"),
+              onTapCancel: () => print("Cancel"),
               onTap: () {
                 Get.to(
                   () => DetailScreen(
@@ -93,6 +106,7 @@ class listview_hot_products extends StatelessWidget {
                 ),
               ),
             ),
+          ),*/
           ),
         );
       },

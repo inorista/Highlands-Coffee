@@ -44,7 +44,7 @@ var kStyleSeeAll = GoogleFonts.openSans(
 );
 
 var kStyleCategory = GoogleFonts.openSans(
-  fontSize: 14,
+  fontSize: 15,
   fontWeight: FontWeight.w700,
   color: Color(0xff333333),
 );

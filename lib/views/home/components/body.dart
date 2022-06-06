@@ -11,11 +11,7 @@ import 'package:seemon/views/home/components/register_promo.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:get/get.dart';
 
-class Body extends GetWidget {
-  const Body({
-    Key? key,
-  }) : super(key: key);
-
+class HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     HomeController _controller = Get.put(HomeController());

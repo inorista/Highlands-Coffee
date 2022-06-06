@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 import 'package:seemon/models/thucuong.dart';
 
 class HomeController extends GetxController with SingleGetTickerProviderMixin {
+  // Controller products, news, promos container.
+  var tabIndex = 0;
   // Controller của PageView
   late PageController _pageController;
   PageController get pageController => this._pageController;
@@ -19,6 +21,7 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
   @override
   void onInit() async {
     _pageController = PageController();
+
     super.onInit();
   }
 
@@ -46,7 +49,12 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
     return dataThucuong;
   }
 
-  void addBaihocAuto(String tenThucuong, String anhThucuong, String theloai, List listSize, List listPrice) async {
+  void changeTabIndex(int index) {
+    tabIndex = index;
+    update();
+  }
+
+  void add(String tenThucuong, String anhThucuong, String theloai, List listSize, List listPrice) async {
     try {
       await db_product.add({
         "tenThucuong": tenThucuong,

@@ -32,7 +32,7 @@ class DetailController extends GetxController with SingleGetTickerProviderMixin 
     update();
   }
 
-  void onChangeIndex(int index, thucuong) async {
+  void onChangeIndex(index, thucuong) async {
     _selectedPrice = index;
     _selectedSize = index;
     currentPrice.value = thucuong.listPrice[index].toInt();
@@ -70,12 +70,11 @@ class DetailController extends GetxController with SingleGetTickerProviderMixin 
     _anController = AnimationController(
       vsync: this,
       duration: const Duration(
-        milliseconds: 300,
+        milliseconds: 200,
       ),
     );
     _animation = Tween(begin: 0.0, end: 1.0).animate(_anController)..addListener(() => update());
     _anController.forward();
-
     super.onInit();
   }
 
