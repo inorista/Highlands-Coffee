@@ -79,3 +79,33 @@ var kAddButtonText = GoogleFonts.montserrat(
   fontWeight: FontWeight.w500,
   color: Colors.white,
 );
+
+var kStyleTitleAppbar_Order = GoogleFonts.montserrat(
+  fontSize: 15,
+  fontWeight: FontWeight.w600,
+  color: Colors.black,
+);
+
+var kStyleTitlePromo = GoogleFonts.mulish(
+  fontSize: 15,
+  fontWeight: FontWeight.w700,
+  color: Colors.black,
+);
+
+var kStyleDescriptionPromo = GoogleFonts.notoSans(
+  fontSize: 13,
+  fontWeight: FontWeight.w500,
+  color: Colors.black,
+  letterSpacing: 0.3,
+);
+var kStyleConditionApply = GoogleFonts.notoSans(
+  fontSize: 14,
+  fontWeight: FontWeight.w600,
+  color: Colors.black,
+);
+var kStyleConditionText = GoogleFonts.notoSans(
+  fontSize: 13,
+  fontWeight: FontWeight.w400,
+  color: Colors.black,
+  letterSpacing: 0.3,
+);

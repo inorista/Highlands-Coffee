@@ -24,7 +24,6 @@ class HomeScreen extends StatelessWidget {
         return Scaffold(
           extendBodyBehindAppBar: false,
           resizeToAvoidBottomInset: false,
-          appBar: home_appbar(),
           body: IndexedStack(
             index: controller.tabIndex,
             children: [

@@ -4,7 +4,7 @@ import 'package:seemon/constants/padding_constants.dart';
 import 'package:seemon/constants/style_constants..dart';
 import 'package:seemon/controllers/home_controllers.dart';
 import 'package:seemon/constants/string_format.dart';
-import 'package:seemon/views/detail/detail_screen.dart';
+import 'package:seemon/views/detail_product/detail_screen.dart';
 import 'package:seemon/views/home/components/items_hotproduct.dart';
 
 class listview_hot_products extends StatelessWidget {

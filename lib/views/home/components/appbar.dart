@@ -17,7 +17,8 @@ class home_appbar extends StatelessWidget with PreferredSizeWidget {
         style: kStyleTitleAppbar,
       ),
       backgroundColor: Colors.white,
-      elevation: 0,
+      elevation: 5,
+      shadowColor: Colors.grey.withOpacity(0.3),
       toolbarHeight: 40,
       actions: [
         IconButton(

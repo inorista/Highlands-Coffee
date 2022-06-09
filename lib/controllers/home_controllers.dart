@@ -14,7 +14,7 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
 
   // Firestore access
   final db_product = FirebaseFirestore.instance.collection("products");
-
+  final db_promo = FirebaseFirestore.instance.collection("promo");
   // List thức uống nổi bật
   late List<thucuong> dataThucuong;
 
@@ -62,6 +62,26 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
         "theloai": theloai,
         "listSize": listSize,
         "listPrice": listPrice,
+      });
+    } catch (e) {
+      print("Lỗi ${e}");
+    }
+  }
+
+  void addPromo(
+    String id_khuyenmai,
+    String anh_khuyenmai,
+    String tieude_khuyenmai,
+    String mota_khuyenmai,
+    List<String> dieukien_khuyemai,
+  ) async {
+    try {
+      await db_promo.add({
+        "id_khuyenmai": id_khuyenmai,
+        "anh_khuyenmai": anh_khuyenmai,
+        "tieude_khuyenmai": tieude_khuyenmai,
+        "mota_khuyenmai": mota_khuyenmai,
+        "dieukien_khuyemai": dieukien_khuyemai,
       });
     } catch (e) {
       print("Lỗi ${e}");

@@ -7,11 +7,11 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:seemon/controllers/detail_controllers.dart';
 import 'package:seemon/constants/string_format.dart';
 import 'package:intl/intl.dart';
-import 'package:seemon/views/detail/components/add_button.dart';
-import 'package:seemon/views/detail/components/minus_button.dart';
-import 'package:seemon/views/detail/components/options.dart';
-import 'package:seemon/views/detail/components/plus_button.dart';
-import 'package:seemon/views/detail/components/quantity_text.dart';
+import 'package:seemon/views/detail_product/components/add_button.dart';
+import 'package:seemon/views/detail_product/components/minus_button.dart';
+import 'package:seemon/views/detail_product/components/options.dart';
+import 'package:seemon/views/detail_product/components/plus_button.dart';
+import 'package:seemon/views/detail_product/components/quantity_text.dart';
 
 // Price Format
 
@@ -180,7 +180,7 @@ class DetailScreen extends StatelessWidget {
                   },
                   icon: Icon(
                     EvaIcons.close,
-                    color: Colors.black,
+                    color: Colors.black45,
                   ),
                 ),
               ),

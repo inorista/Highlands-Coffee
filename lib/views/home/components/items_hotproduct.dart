@@ -6,7 +6,7 @@ import 'package:seemon/constants/padding_constants.dart';
 import 'package:seemon/constants/string_format.dart';
 import 'package:seemon/constants/style_constants..dart';
 import 'package:seemon/controllers/home_controllers.dart';
-import 'package:seemon/views/detail/detail_screen.dart';
+import 'package:seemon/views/detail_product/detail_screen.dart';
 
 class items_hotproduct extends StatefulWidget {
   const items_hotproduct({Key? key, required this.index}) : super(key: key);
@@ -24,6 +24,11 @@ class _items_hotproductState extends State<items_hotproduct> with TickerProvider
   @override
   void initState() {
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
