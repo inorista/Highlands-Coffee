@@ -34,53 +34,59 @@ class HomeScreen extends StatelessWidget {
               UserScreen(),
             ],
           ),
-          bottomNavigationBar: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            selectedItemColor: Color(0xffB3282C),
-            unselectedItemColor: Color(0xff685A53),
-            iconSize: 20,
-            showUnselectedLabels: true,
-            selectedFontSize: 10,
-            unselectedFontSize: 10,
-            onTap: controller.changeTabIndex,
-            currentIndex: controller.tabIndex,
-            items: const [
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 2),
-                  child: Icon(Linecons.cup),
+          bottomNavigationBar: Container(
+            decoration: BoxDecoration(
+              boxShadow: <BoxShadow>[BoxShadow(color: Colors.black26, blurRadius: 10.0, offset: Offset(0.0, 2))],
+            ),
+            child: BottomNavigationBar(
+              elevation: 10,
+              type: BottomNavigationBarType.fixed,
+              selectedItemColor: Color(0xffB3282C),
+              unselectedItemColor: Color(0xff685A53),
+              iconSize: 20,
+              showUnselectedLabels: true,
+              selectedFontSize: 10,
+              unselectedFontSize: 10,
+              onTap: controller.changeTabIndex,
+              currentIndex: controller.tabIndex,
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 2),
+                    child: Icon(Linecons.cup),
+                  ),
+                  label: "Trang Chủ",
                 ),
-                label: "Trang Chủ",
-              ),
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 2),
-                  child: Icon(Linecons.doc),
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 2),
+                    child: Icon(Linecons.doc),
+                  ),
+                  label: "Đơn hàng",
                 ),
-                label: "Đơn hàng",
-              ),
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 2),
-                  child: Icon(LineariconsFree.coffee_cup),
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 2),
+                    child: Icon(LineariconsFree.coffee_cup),
+                  ),
+                  label: "Đặt Hàng",
                 ),
-                label: "Đặt Hàng",
-              ),
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 2),
-                  child: Icon(Linecons.wallet),
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 2),
+                    child: Icon(Linecons.wallet),
+                  ),
+                  label: "Trả trước",
                 ),
-                label: "Trả trước",
-              ),
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 2),
-                  child: Icon(LineariconsFree.users),
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 2),
+                    child: Icon(LineariconsFree.users),
+                  ),
+                  label: "Tài Khoản",
                 ),
-                label: "Tài Khoản",
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },

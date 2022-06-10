@@ -33,7 +33,8 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
 
   Future fetchData() async {
     dataThucuong = [];
-    QuerySnapshot<Map<String, dynamic>> datafromDB = await db_product.limit(3).get();
+    QuerySnapshot<Map<String, dynamic>> datafromDB =
+        await db_product.orderBy('theloai', descending: true).limit(3).get();
     final tempData = await datafromDB.docs.map((e) => e.data()).toList();
     dataThucuong = await tempData
         .map(

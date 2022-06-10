@@ -24,7 +24,11 @@ var kStyleLoginButtonText = GoogleFonts.openSans(
   fontWeight: FontWeight.w700,
   color: Color(0xffB42A2F),
 );
-
+var kStyleLoginButtonText_reverse = GoogleFonts.openSans(
+  fontSize: 14,
+  fontWeight: FontWeight.w700,
+  color: Colors.white,
+);
 var kStyleRegisterText = GoogleFonts.openSans(
   fontSize: 11,
   fontWeight: FontWeight.w700,
@@ -108,4 +112,17 @@ var kStyleConditionText = GoogleFonts.notoSans(
   fontWeight: FontWeight.w400,
   color: Colors.black,
   letterSpacing: 0.3,
+);
+
+var kStyleHeader = GoogleFonts.montserrat(
+  fontSize: 30,
+  fontWeight: FontWeight.w600,
+  color: Colors.black,
+  letterSpacing: 0.3,
+);
+var kStyleDescription = GoogleFonts.montserrat(
+  fontSize: 12,
+  fontWeight: FontWeight.w500,
+  color: Colors.black,
+  letterSpacing: 0.2,
 );
