@@ -46,7 +46,9 @@ class introduce extends StatelessWidget {
                       ),
                       const Spacer(),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          _controller.showLoginPage(context);
+                        },
                         child: Container(
                           height: 30,
                           width: 150,

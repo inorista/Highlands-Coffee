@@ -3,7 +3,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:seemon/models/thucuong.dart';
+import 'package:seemon/views/login/login_screen.dart';
 
 class HomeController extends GetxController with SingleGetTickerProviderMixin {
   // Controller products, news, promos container.
@@ -48,6 +50,14 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
         )
         .toList();
     return dataThucuong;
+  }
+
+  void showLoginPage(context) {
+    showCupertinoModalBottomSheet(
+      animationCurve: Curves.fastOutSlowIn,
+      context: context,
+      builder: (context) => LoginScreen(),
+    );
   }
 
   void changeTabIndex(int index) {

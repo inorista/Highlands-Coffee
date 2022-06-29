@@ -7,7 +7,7 @@ import 'package:seemon/views/detail_promo/detail_promo_screen.dart';
 import 'package:seemon/views/home/components/items_promo.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class promo_pageview extends GetWidget {
+class promo_pageview extends StatelessWidget {
   const promo_pageview({
     Key? key,
   }) : super(key: key);

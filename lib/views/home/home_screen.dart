@@ -1,95 +1,65 @@
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttericon/linecons_icons.dart';
-import 'package:fluttericon/typicons_icons.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
-import 'package:ionicons/ionicons.dart';
+import 'package:seemon/constants/padding_constants.dart';
+import 'package:seemon/constants/style_constants..dart';
 import 'package:seemon/controllers/home_controllers.dart';
-import 'package:seemon/views/home/components/body.dart';
 import 'package:seemon/views/home/components/appbar.dart';
-import 'package:fluttericon/linearicons_free_icons.dart';
-import 'package:seemon/views/menu/menu_screen.dart';
-import 'package:seemon/views/order/order_screen.dart';
-import 'package:seemon/views/payment/payment_screen.dart';
-import 'package:seemon/views/user/user_screen.dart';
+import 'package:seemon/views/home/components/hot_products_category.dart';
+import 'package:seemon/views/home/components/introduce.dart';
+import 'package:seemon/views/home/components/listview_hotproducts.dart';
+import 'package:seemon/views/home/components/pageview_promo.dart';
+import 'package:seemon/views/home/components/promo_see_all.dart';
+import 'package:seemon/views/home/components/register_promo.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:get/get.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
+class HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<HomeController>(
-      builder: (controller) {
-        return Scaffold(
-          extendBodyBehindAppBar: false,
-          resizeToAvoidBottomInset: false,
-          body: IndexedStack(
-            index: controller.tabIndex,
+    HomeController _controller = Get.put(HomeController());
+    return Scaffold(
+      appBar: home_appbar(),
+      body: Container(
+        height: double.infinity,
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(
+            parent: AlwaysScrollableScrollPhysics(),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              HomeBody(),
-              OrderScreen(),
-              MenuScreen(),
-              PaymentScreen(),
-              UserScreen(),
+              introduce(),
+              register_promo(),
+              promo_seeAll(),
+              promo_pageview(),
+              hot_products(),
+              listview_hot_products(controller: _controller),
+              Padding(
+                  padding: EdgeInsets.all(kPaddingDefault * 2),
+                  child: Container(
+                    width: double.infinity,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          "assets/images/lastest_icon.png",
+                          height: 40,
+                          width: 40,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: kPaddingDefault * 1.5),
+                          child: Text(
+                            "Tin cuối rồi. Bạn thật tuyệt vời",
+                            style: kStyleFooterText,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ))
             ],
           ),
-          bottomNavigationBar: Container(
-            decoration: BoxDecoration(
-              boxShadow: <BoxShadow>[BoxShadow(color: Colors.black26, blurRadius: 10.0, offset: Offset(0.0, 2))],
-            ),
-            child: BottomNavigationBar(
-              elevation: 10,
-              type: BottomNavigationBarType.fixed,
-              selectedItemColor: Color(0xffB3282C),
-              unselectedItemColor: Color(0xff685A53),
-              iconSize: 20,
-              showUnselectedLabels: true,
-              selectedFontSize: 10,
-              unselectedFontSize: 10,
-              onTap: controller.changeTabIndex,
-              currentIndex: controller.tabIndex,
-              items: const [
-                BottomNavigationBarItem(
-                  icon: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 2),
-                    child: Icon(Linecons.cup),
-                  ),
-                  label: "Trang Chủ",
-                ),
-                BottomNavigationBarItem(
-                  icon: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 2),
-                    child: Icon(Linecons.doc),
-                  ),
-                  label: "Đơn hàng",
-                ),
-                BottomNavigationBarItem(
-                  icon: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 2),
-                    child: Icon(LineariconsFree.coffee_cup),
-                  ),
-                  label: "Đặt Hàng",
-                ),
-                BottomNavigationBarItem(
-                  icon: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 2),
-                    child: Icon(Linecons.wallet),
-                  ),
-                  label: "Trả trước",
-                ),
-                BottomNavigationBarItem(
-                  icon: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 2),
-                    child: Icon(LineariconsFree.users),
-                  ),
-                  label: "Tài Khoản",
-                ),
-              ],
-            ),
-          ),
-        );
-      },
+        ),
+      ),
     );
   }
 }

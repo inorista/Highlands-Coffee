@@ -120,9 +120,25 @@ var kStyleHeader = GoogleFonts.montserrat(
   color: Colors.black,
   letterSpacing: 0.3,
 );
-var kStyleDescription = GoogleFonts.montserrat(
-  fontSize: 12,
+var kStyleDescription,
+    kStyleLoginHeaderText = GoogleFonts.montserrat(
+      fontSize: 12,
+      fontWeight: FontWeight.w500,
+      color: Color(0xff221f20),
+      letterSpacing: 0.2,
+    );
+var kStyleLoginHeader = GoogleFonts.montserrat(
+  fontSize: 20,
+  fontWeight: FontWeight.w800,
+  color: Color(0xff221f20),
+);
+var kStyleLoginPrefixPhone = GoogleFonts.poppins(
+  fontSize: 16,
   fontWeight: FontWeight.w500,
-  color: Colors.black,
-  letterSpacing: 0.2,
+  color: Color(0xff221f20),
+);
+var kStyleFooterText = GoogleFonts.montserrat(
+  fontSize: 14,
+  fontWeight: FontWeight.w600,
+  color: Color(0xff666666),
 );

@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:seemon/binding/home_binding.dart';
-import 'package:seemon/views/home/home_screen.dart';
+import 'package:seemon/views/dashboard/dashboard_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,11 +41,11 @@ class _MyAppState extends State<MyApp> {
         scaffoldBackgroundColor: Color(0xffFFFFFF),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute: '/home',
+      initialRoute: '/dashboard',
       getPages: [
         GetPage(
-          name: '/home',
-          page: () => HomeScreen(),
+          name: '/dashboard',
+          page: () => DashboardScreen(),
           binding: HomeBinding(),
         ),
       ],

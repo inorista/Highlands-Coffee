@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:seemon/constants/padding_constants.dart';
 import 'package:seemon/constants/style_constants..dart';
 import 'package:seemon/models/promo.dart';
-import 'package:seemon/views/home/home_screen.dart';
+import 'package:seemon/views/dashboard/dashboard_screen.dart';
 
 class DetailPromoScreen extends StatelessWidget {
   const DetailPromoScreen({
@@ -98,7 +98,6 @@ class DetailPromoScreen extends StatelessWidget {
                   left: 0,
                   child: IconButton(
                     iconSize: 26,
-                    padding: EdgeInsets.zero,
                     onPressed: () {
                       Get.back();
                     },
