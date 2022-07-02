@@ -44,14 +44,14 @@ class _login_buttonState extends State<login_button> {
       init: AuthController(),
       builder: (authController) {
         Color getLoginButtonSplashColor() {
-          if (authController.isAcceptLicense == false) {
+          if (authController.isAcceptLicense == false || authController.textLength < 9) {
             return kIsNotAcceptedLicenseSplash;
           }
           return kIsAcceptedLicenseSplash;
         }
 
         Color getLoginButtonColor() {
-          if (authController.isAcceptLicense == false) {
+          if (authController.isAcceptLicense == false || authController.textLength < 9) {
             return kIsNotAcceptedLicense;
           }
           return kIsAcceptedLicense;

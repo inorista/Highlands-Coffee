@@ -12,11 +12,18 @@ const kUnselectedCompare = Color(0xffE5DBCE);
 const kQuantityMinimum = Color(0xffBFBFBF);
 const kQuantityNotMinimum = Color(0xffB3282C);
 
-const kPhoneIncorrect = Color(0xffFF0000);
-const kPhoneCorrect = Colors.green;
+const kPhoneInputBorderIncorrect = Color(0xffFF0000);
+const kPhoneInputBorderCorrect = Color(0xff43BC0D);
+const kPhoneInputBorderNormal = Color(0xffBD945B);
 
 const kIsAcceptedLicense = Color(0xffB2282D);
 const kIsAcceptedLicenseSplash = Color(0xffD43E43);
 
 const kIsNotAcceptedLicense = Color(0xffABABAB);
 const kIsNotAcceptedLicenseSplash = Color(0xffABABAB);
+
+const kCheckedBox = Color(0xffB3282C);
+const kUnCheckBox = Colors.transparent;
+
+const kCheckedBoxBorder = Color(0xffB3282C);
+const kUnCheckBoxBorder = Color(0xffA1A1A1);

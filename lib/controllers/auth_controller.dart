@@ -15,6 +15,12 @@ class AuthController extends GetxController with SingleGetTickerProviderMixin {
   int _textLength = 0;
   int get textLength => this._textLength;
 
+  //Init border Color
+  String _statsInputBorder = "normal";
+  String get statsInputBorder => this._statsInputBorder;
+
+  //
+
   @override
   void onInit() {
     super.onInit();
@@ -22,14 +28,34 @@ class AuthController extends GetxController with SingleGetTickerProviderMixin {
 
   @override
   void onClose() {
+    _statsInputBorder = "normal";
+    _textLength = 0;
+    _isAcceptLicense = false;
     super.onClose();
   }
 
-  void updateTextLength(int textLength) {
-    _textLength = textLength;
-    print(_textLength);
+  void updateTextLength(String textLength) {
+    _textLength = textLength.length;
     update();
   }
 
-  void updateBorderColor() {}
+  void onClickAcceptLicense() {
+    if (_isAcceptLicense) {
+      _isAcceptLicense = false;
+    } else if (!_isAcceptLicense) {
+      _isAcceptLicense = true;
+    }
+    update();
+  }
+
+  void checkingPhoneAndUpdateUI() {
+    if (_textLength < 9 && _textLength > 0) {
+      _statsInputBorder = "incorrect";
+    } else if (_textLength > 9) {
+      _statsInputBorder = "correct";
+    } else if (_textLength == 0) {
+      _statsInputBorder = "normal";
+    }
+    update();
+  }
 }

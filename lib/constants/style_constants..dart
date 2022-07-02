@@ -22,7 +22,7 @@ var kStyleIntroduce = GoogleFonts.openSans(
 var kStyleLoginButtonText = GoogleFonts.openSans(
   fontSize: 11,
   fontWeight: FontWeight.w700,
-  color: Color(0xffB42A2F),
+  color: const Color(0xffB42A2F),
 );
 var kStyleLoginButtonText_reverse = GoogleFonts.openSans(
   fontSize: 14,
@@ -44,13 +44,13 @@ var kStylePromoText = GoogleFonts.openSans(
 var kStyleSeeAll = GoogleFonts.openSans(
   fontSize: 14,
   fontWeight: FontWeight.w700,
-  color: Color(0xffb69665),
+  color: const Color(0xffb69665),
 );
 
 var kStyleCategory = GoogleFonts.openSans(
   fontSize: 15,
   fontWeight: FontWeight.w700,
-  color: Color(0xff333333),
+  color: const Color(0xff333333),
 );
 
 var kStyleNameItems = GoogleFonts.openSans(
@@ -75,7 +75,7 @@ var kStyleVAT = GoogleFonts.montserrat(
 var kStyleQuantity = GoogleFonts.notoSans(
   fontSize: 22,
   fontWeight: FontWeight.w700,
-  color: Color(0xffB3282D),
+  color: const Color(0xffB3282D),
 );
 
 var kAddButtonText = GoogleFonts.montserrat(
@@ -122,23 +122,49 @@ var kStyleHeader = GoogleFonts.montserrat(
 );
 var kStyleDescription,
     kStyleLoginHeaderText = GoogleFonts.montserrat(
-      fontSize: 12,
+      fontSize: 13,
       fontWeight: FontWeight.w500,
-      color: Color(0xff221f20),
+      color: const Color(0xff221f20),
       letterSpacing: 0.2,
     );
 var kStyleLoginHeader = GoogleFonts.montserrat(
   fontSize: 20,
   fontWeight: FontWeight.w800,
-  color: Color(0xff221f20),
+  color: const Color(0xff221f20),
 );
 var kStyleLoginPrefixPhone = GoogleFonts.poppins(
   fontSize: 16,
   fontWeight: FontWeight.w500,
-  color: Color(0xff221f20),
+  color: const Color(0xff221f20),
 );
 var kStyleFooterText = GoogleFonts.montserrat(
   fontSize: 14,
   fontWeight: FontWeight.w600,
-  color: Color(0xff666666),
+  color: const Color(0xff666666),
+);
+var kStyleInputHint = GoogleFonts.montserrat(
+  fontSize: 14,
+  fontWeight: FontWeight.w500,
+  color: const Color(0xffBFBAB5),
+);
+
+var kStyleInput = GoogleFonts.montserrat(
+  fontSize: 22,
+  fontWeight: FontWeight.w600,
+  color: const Color(0xff000000),
+  textBaseline: TextBaseline.alphabetic,
+);
+
+var kStyleLicense_1 = GoogleFonts.montserrat(
+  fontSize: 14,
+  fontWeight: FontWeight.w600,
+  color: const Color(0xff231F20),
+  letterSpacing: 0.2,
+);
+
+var kStyleLicense_2 = GoogleFonts.montserrat(
+  fontSize: 14,
+  fontWeight: FontWeight.w600,
+  color: const Color(0xffBC945C),
+  letterSpacing: 0.2,
 );

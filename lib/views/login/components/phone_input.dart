@@ -1,4 +1,6 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:seemon/constants/color_constants.dart';
 import 'package:seemon/constants/padding_constants.dart';
@@ -17,61 +19,85 @@ class phone_input extends GetWidget<AuthController> {
     return GetBuilder<AuthController>(
       init: AuthController(),
       builder: (authController) {
+        Color getBorderInputColor() {
+          if (authController.statsInputBorder == "normal") {
+            return kPhoneInputBorderNormal;
+          } else if (authController.statsInputBorder == "incorrect") {
+            return kPhoneInputBorderIncorrect;
+          }
+          return kPhoneInputBorderCorrect;
+        }
+
         return Padding(
-          padding: EdgeInsets.all(kPaddingDefault * 4),
+          padding: EdgeInsets.only(top: kPaddingDefault * 4),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                padding: EdgeInsets.symmetric(vertical: kPaddingItems),
+                height: 40,
+                margin: EdgeInsets.symmetric(horizontal: kPaddingDefault * 4),
                 decoration: BoxDecoration(
                   border: Border(
-                    bottom: BorderSide(color: Color(0xffFF0000), width: 1.5),
+                    bottom: BorderSide(color: getBorderInputColor(), width: 1.25),
                   ),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      "assets/images/phone_icon.png",
-                      height: 25,
-                      width: 25,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(right: kPaddingDefault),
-                      child: Text("+84", style: kStyleLoginPrefixPhone),
-                    ),
-                    Container(
-                      child: Flexible(
-                        child: TextField(
+                child: Center(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        "assets/images/phone_icon.png",
+                        height: 25,
+                        width: 25,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(right: kPaddingDefault),
+                        child: Text("+84", style: kStyleLoginPrefixPhone),
+                      ),
+                      Expanded(
+                        child: TextFormField(
+                          textAlignVertical: TextAlignVertical.center,
+                          inputFormatters: <TextInputFormatter>[
+                            LengthLimitingTextInputFormatter(10),
+                            FilteringTextInputFormatter.digitsOnly,
+                          ],
                           autofocus: true,
                           onTap: () => focusNode.requestFocus(),
                           focusNode: focusNode,
                           keyboardType: TextInputType.number,
                           controller: phoneController,
                           onChanged: (text) {
-                            controller.updateTextLength(text.length);
+                            controller.updateTextLength(text);
                           },
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w100,
-                            color: Color(0xff3e4680),
-                          ),
-                          textAlign: TextAlign.left,
+                          style: kStyleInput,
                           maxLines: 1,
-                          decoration: InputDecoration.collapsed(
-                            hintText: "Email...",
-                            hintStyle: TextStyle(
-                              fontSize: 14,
-                              color: Color(0xff8c8c8c),
-                            ),
+                          decoration: InputDecoration(
+                            alignLabelWithHint: true,
+                            isCollapsed: true,
+                            border: InputBorder.none,
+                            hintText: "Nhập số điện thoại",
+                            hintStyle: kStyleInputHint,
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
+                ),
+              ),
+              Opacity(
+                opacity: 0,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: kPaddingSize),
+                  child: Row(
+                    children: [
+                      Icon(
+                        EvaIcons.alertCircleOutline,
+                        color: Color(0xffFF2702),
+                        size: 12,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
