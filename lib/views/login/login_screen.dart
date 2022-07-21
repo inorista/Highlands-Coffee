@@ -36,8 +36,7 @@ class LoginScreen extends StatelessWidget {
                     iconSize: 28,
                     padding: EdgeInsets.zero,
                     onPressed: () {
-                      Get.back();
-                      Get.delete<AuthController>();
+                      Get.delete<AuthController>().then((value) => Get.back());
                     },
                     icon: const Icon(
                       EvaIcons.close,

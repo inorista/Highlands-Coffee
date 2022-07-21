@@ -168,3 +168,39 @@ var kStyleLicense_2 = GoogleFonts.montserrat(
   color: const Color(0xffBC945C),
   letterSpacing: 0.2,
 );
+
+var kStyleErrorText = GoogleFonts.montserrat(
+  fontSize: 13,
+  fontWeight: FontWeight.w500,
+  color: const Color(0xffFF0000),
+  letterSpacing: 0.2,
+);
+
+var kStyleTakeLocation = GoogleFonts.montserrat(
+  fontSize: 12,
+  fontWeight: FontWeight.w500,
+  color: const Color(0xfffefefe),
+);
+
+var kStyleLocation = GoogleFonts.montserrat(
+  fontSize: 12,
+  fontWeight: FontWeight.w600,
+  color: const Color(0xfffefefe),
+  letterSpacing: 0.2,
+);
+
+var kStyleTabbarSelected = GoogleFonts.montserrat(
+  fontSize: 13,
+  fontWeight: FontWeight.w600,
+);
+
+var kStyleTabbarUnSelected = GoogleFonts.montserrat(
+  fontSize: 13,
+  fontWeight: FontWeight.w500,
+);
+
+var kStyleCategoryMenu = GoogleFonts.montserrat(
+  fontSize: 14,
+  fontWeight: FontWeight.w600,
+  color: Color(0xff000000),
+);

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:seemon/constants/padding_constants.dart';
 import 'package:seemon/constants/style_constants..dart';
 import 'package:seemon/controllers/home_controllers.dart';
-import 'package:seemon/views/home/components/appbar.dart';
+import 'package:seemon/views/home/components/home_appbar.dart';
 import 'package:seemon/views/home/components/hot_products_category.dart';
 import 'package:seemon/views/home/components/introduce.dart';
 import 'package:seemon/views/home/components/listview_hotproducts.dart';

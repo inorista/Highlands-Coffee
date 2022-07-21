@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:seemon/controllers/home_controllers.dart';
 import 'package:seemon/views/home/home_screen.dart';
-import 'package:seemon/views/home/components/appbar.dart';
+import 'package:seemon/views/home/components/home_appbar.dart';
 import 'package:fluttericon/linearicons_free_icons.dart';
 import 'package:seemon/views/menu/menu_screen.dart';
 import 'package:seemon/views/order/order_screen.dart';

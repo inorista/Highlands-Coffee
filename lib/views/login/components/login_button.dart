@@ -67,7 +67,13 @@ class _login_buttonState extends State<login_button> {
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
               highlightColor: getLoginButtonSplashColor(),
               splashColor: getLoginButtonSplashColor(),
-              onPressed: () {},
+              onPressed: () {
+                if (authController.textLength >= 9 && authController.isAcceptLicense == true) {
+                  return authController.checkingAuthPhone();
+                } else {
+                  return null;
+                }
+              },
               minWidth: MediaQuery.of(context).size.width,
               color: getLoginButtonColor(),
               child: Padding(

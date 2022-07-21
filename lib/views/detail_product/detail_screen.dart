@@ -42,7 +42,7 @@ class DetailScreen extends StatelessWidget {
                   child: Hero(
                     tag: thucuong.tenThucuong,
                     child: Container(
-                      padding: EdgeInsets.all(kPaddingDefault * 1.5),
+                      padding: EdgeInsets.all(kPaddingDefault),
                       color: const Color(0xffF8F1E7),
                       child: Image.network(
                         thucuong.anhThucuong,

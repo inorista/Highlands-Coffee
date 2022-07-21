@@ -4,6 +4,7 @@ import 'package:seemon/constants/padding_constants.dart';
 import 'package:seemon/constants/style_constants..dart';
 import 'package:get/get.dart';
 import 'package:seemon/controllers/home_controllers.dart';
+import 'package:seemon/models/thucuong.dart';
 
 class introduce extends StatelessWidget {
   const introduce({
@@ -12,6 +13,7 @@ class introduce extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<thucuong> listAdd = [banh_phomai_chanhday, banh_socola_highlands];
     HomeController _controller = Get.put(HomeController());
     return Stack(
       children: [
@@ -86,7 +88,11 @@ class introduce extends StatelessWidget {
                     height: 14,
                     width: 14,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        for (int i = 0; i < listAdd.length; i++) {
+                          _controller.add(listAdd[i]);
+                        }
+                      },
                       style: ElevatedButton.styleFrom(
                         shadowColor: Colors.transparent,
                         elevation: 0,

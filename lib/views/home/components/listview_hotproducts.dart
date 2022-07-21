@@ -19,7 +19,7 @@ class listview_hot_products extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: _controller.fetchData(),
+      future: _controller.futureHotProduct,
       builder: (context, AsyncSnapshot sn) {
         if (!sn.hasData) {
           return const Center(
@@ -35,7 +35,7 @@ class listview_hot_products extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             children: [
               ...List.generate(
-                _controller.dataThucuong.length,
+                _controller.dataThucuongHot.length,
                 (index) => items_hotproduct(index: index),
               ),
             ],

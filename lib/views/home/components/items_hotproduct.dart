@@ -57,12 +57,12 @@ class _items_hotproductState extends State<items_hotproduct> with TickerProvider
       onTap: () {
         Get.to(
           () => DetailScreen(
-            thucuong: _controller.dataThucuong[index],
+            thucuong: _controller.dataThucuongHot[index],
           ),
         );
       },
       child: Hero(
-        tag: _controller.dataThucuong[index].tenThucuong,
+        tag: _controller.dataThucuongHot[index].tenThucuong,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           child: Transform.scale(
@@ -93,7 +93,7 @@ class _items_hotproductState extends State<items_hotproduct> with TickerProvider
                         color: const Color(0xffF6F1E7),
                         child: ClipRRect(
                           child: Image.network(
-                            _controller.dataThucuong[index].anhThucuong,
+                            _controller.dataThucuongHot[index].anhThucuong,
                             fit: BoxFit.fitWidth,
                           ),
                         ),
@@ -104,7 +104,7 @@ class _items_hotproductState extends State<items_hotproduct> with TickerProvider
                     child: Padding(
                       padding: const EdgeInsets.all(kPaddingItems),
                       child: Text(
-                        _controller.dataThucuong[index].tenThucuong.toString().toTitleCase(),
+                        _controller.dataThucuongHot[index].tenThucuong.toString().toTitleCase(),
                         style: kStyleNameItems,
                       ),
                     ),
