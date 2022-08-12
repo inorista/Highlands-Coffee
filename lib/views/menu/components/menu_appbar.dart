@@ -46,7 +46,7 @@ class _menu_appbarState extends State<menu_appbar> with TickerProviderStateMixin
               ),
             ),
             GestureDetector(
-              onTap: () => print("OK"),
+              onTap: () => _controller.showChangeMethodBottomSheet(context),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,

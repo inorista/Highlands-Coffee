@@ -27,3 +27,12 @@ const kUnCheckBox = Colors.transparent;
 
 const kCheckedBoxBorder = Color(0xffB3282C);
 const kUnCheckBoxBorder = Color(0xffA1A1A1);
+
+const kConfirmBox = Color(0xffa43533);
+const kConfirmBoxSplash = Color(0xffD43E43);
+
+const kPinFilled = Color(0xffb79663);
+const kPinNotFilled = Color(0xff979797);
+
+const kIndicatorTabbar = Color(0xffa43533);
+const kUnselectedTabbar = Color(0xff655a54);

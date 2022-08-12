@@ -48,7 +48,11 @@ dependencies:
   font_awesome_flutter: ^10.1.0
   fluttericon: ^2.0.0
   modal_bottom_sheet: ^2.0.1
-  vertical_scrollable_tabview: ^0.0.7
+  vertical_scrollable_tabview:
+    git:
+      url: https://github.com/inorista/vertical_scrollable_tabview
+  pinput: ^2.2.12
+  cached_network_image: ^3.2.1
 
 
 

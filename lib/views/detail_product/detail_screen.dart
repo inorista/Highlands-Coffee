@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dismissible_page/dismissible_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,8 +17,9 @@ import 'package:seemon/views/detail_product/components/quantity_text.dart';
 // Price Format
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key, this.thucuong}) : super(key: key);
+  const DetailScreen({Key? key, this.thucuong, required this.specialKey}) : super(key: key);
   final thucuong;
+  final String specialKey;
   @override
   Widget build(BuildContext context) {
     final currencyFormatter = NumberFormat('###,000', 'ID');
@@ -39,13 +41,15 @@ class DetailScreen extends StatelessWidget {
               Positioned.fill(
                 bottom: MediaQuery.of(context).size.height * 0.7,
                 child: SizedBox(
-                  child: Hero(
-                    tag: thucuong.tenThucuong,
-                    child: Container(
-                      padding: EdgeInsets.all(kPaddingDefault),
-                      color: const Color(0xffF8F1E7),
-                      child: Image.network(
-                        thucuong.anhThucuong,
+                  child: Container(
+                    padding: EdgeInsets.all(kPaddingDefault),
+                    color: const Color(0xffF8F1E7),
+                    child: Center(
+                      child: Hero(
+                        tag: thucuong.anhThucuong + specialKey,
+                        child: CachedNetworkImage(
+                          imageUrl: thucuong.anhThucuong,
+                        ),
                       ),
                     ),
                   ),

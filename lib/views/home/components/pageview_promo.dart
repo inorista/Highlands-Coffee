@@ -15,10 +15,10 @@ class promo_pageview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     HomeController _controller = Get.put(HomeController());
-    return StreamBuilder<QuerySnapshot>(
-      stream: _controller.db_promo.snapshots(),
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
+    return FutureBuilder(
+      future: _controller.futureAllPromo,
+      builder: (context, AsyncSnapshot sn) {
+        if (sn.hasData) {
           return Container(
             height: 190,
             width: double.infinity,
@@ -31,13 +31,9 @@ class promo_pageview extends StatelessWidget {
                   ),
                   children: [
                     ...List.generate(
-                      snapshot.data!.docs.length,
+                      _controller.listAllPromo.length,
                       (index) => items_promo(
-                        id_khuyenmai: snapshot.data!.docs[index]["id_khuyenmai"],
-                        anh_khuyenmai: snapshot.data!.docs[index]["anh_khuyenmai"],
-                        tieude_khuyenmai: snapshot.data!.docs[index]["tieude_khuyenmai"],
-                        mota_khuyenmai: snapshot.data!.docs[index]["mota_khuyenmai"],
-                        dieukien_khuyemai: snapshot.data!.docs[index]["dieukien_khuyemai"],
+                        crPromo: _controller.listAllPromo[index],
                       ),
                     ),
                   ],
@@ -47,7 +43,7 @@ class promo_pageview extends StatelessWidget {
                   right: 25,
                   child: SmoothPageIndicator(
                     controller: _controller.pageController,
-                    count: snapshot.data!.docs.length.toInt(),
+                    count: _controller.listAllPromo.length,
                     effect: ExpandingDotsEffect(
                         activeDotColor: Colors.white, dotColor: Colors.grey, dotHeight: 3, dotWidth: 3, spacing: 2),
                   ),

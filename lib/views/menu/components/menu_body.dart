@@ -59,12 +59,9 @@ class menu_body extends StatelessWidget {
                   ),
                   onTap: (index) {
                     VerticalScrollableTabBarStatus.setIndex(index);
-                    print(index);
                   },
                   tabs: _controller.allCategory
-                      .map(
-                        (crCategory) => Tab(text: crCategory.nameCategory.toTitleCase()),
-                      )
+                      .map((crCategory) => Tab(text: crCategory.nameCategory.toTitleCase()))
                       .toList(),
                 ),
               ),

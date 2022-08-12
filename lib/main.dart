@@ -32,8 +32,8 @@ class _MyAppState extends State<MyApp> {
     ]);
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      defaultTransition: Transition.noTransition,
       scrollBehavior: MyCustomScrollBehavior(),
-      defaultTransition: Transition.fade,
       title: 'Highlands Coffee',
       theme: ThemeData(
         fontFamily: "OpenSans",

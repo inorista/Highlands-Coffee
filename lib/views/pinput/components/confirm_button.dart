@@ -8,16 +8,16 @@ import 'package:seemon/constants/style_constants..dart';
 import 'package:seemon/controllers/auth_controller.dart';
 import 'package:seemon/views/pinput/pinput_screen.dart';
 
-class login_button extends StatefulWidget {
-  const login_button({
+class confirm_button extends StatefulWidget {
+  const confirm_button({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<login_button> createState() => _login_buttonState();
+  State<confirm_button> createState() => _confirm_buttonState();
 }
 
-class _login_buttonState extends State<login_button> {
+class _confirm_buttonState extends State<confirm_button> {
   double _opacity = 1;
   @override
   void initState() {
@@ -73,8 +73,6 @@ class _login_buttonState extends State<login_button> {
               onPressed: () async {
                 if (authController.isAcceptLicense == true) {
                   if (authController.checkingAuthPhone() == true) {
-                    authController.signingwithPhoneNumber();
-
                     Navigator.of(context).push(
                       /*MaterialWithModals*/ PageRouteBuilder(
                         transitionDuration: Duration(milliseconds: 100),
@@ -105,7 +103,7 @@ class _login_buttonState extends State<login_button> {
                   curve: Curves.bounceIn,
                   duration: Duration(milliseconds: 200),
                   child: Text(
-                    "Tiếp Tục",
+                    "Xác Nhận",
                     style: kStyleLoginButtonText_reverse,
                   ),
                 ),

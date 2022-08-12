@@ -12,7 +12,7 @@ import 'package:seemon/views/home/components/register_promo.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:get/get.dart';
 
-class HomeBody extends StatelessWidget {
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     HomeController _controller = Get.put(HomeController());

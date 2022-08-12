@@ -27,7 +27,7 @@ class DashboardScreen extends StatelessWidget {
           body: IndexedStack(
             index: controller.tabIndex,
             children: [
-              HomeBody(),
+              HomeScreen(),
               OrderScreen(),
               MenuScreen(),
               PaymentScreen(),

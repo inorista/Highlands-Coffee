@@ -1,22 +1,16 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:seemon/constants/padding_constants.dart';
+import 'package:seemon/models/promo.dart';
 import 'package:seemon/views/detail_promo/detail_promo_screen.dart';
 
 class items_promo extends StatelessWidget {
   const items_promo({
     Key? key,
-    required this.id_khuyenmai,
-    required this.anh_khuyenmai,
-    required this.tieude_khuyenmai,
-    required this.mota_khuyenmai,
-    required this.dieukien_khuyemai,
+    required this.crPromo,
   }) : super(key: key);
-  final String id_khuyenmai;
-  final String anh_khuyenmai;
-  final String tieude_khuyenmai;
-  final String mota_khuyenmai;
-  final List<dynamic> dieukien_khuyemai;
+  final khuyenmai crPromo;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -29,17 +23,16 @@ class items_promo extends StatelessWidget {
             onTap: () {
               Get.to(
                 () => DetailPromoScreen(
-                  id_khuyenmai: id_khuyenmai,
-                  anh_khuyenmai: anh_khuyenmai,
-                  tieude_khuyenmai: tieude_khuyenmai,
-                  mota_khuyenmai: mota_khuyenmai,
-                  dieukien_khuyemai: dieukien_khuyemai,
+                  crPromo: crPromo,
                 ),
               );
             },
-            child: Image.network(
-              anh_khuyenmai,
-              fit: BoxFit.fitWidth,
+            child: Hero(
+              tag: crPromo.anh_khuyenmai,
+              child: CachedNetworkImage(
+                imageUrl: crPromo.anh_khuyenmai,
+                fit: BoxFit.fitWidth,
+              ),
             ),
           ),
         ),

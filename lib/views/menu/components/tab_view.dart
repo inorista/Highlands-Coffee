@@ -15,33 +15,36 @@ class TabView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(kPaddingDefault),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            crCategory.nameCategory.toTitleCase(),
-            style: kStyleCategoryMenu,
-          ),
-          Flexible(
-            child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 20,
-                crossAxisSpacing: 20,
-                childAspectRatio: 0.65,
-              ),
-              physics: NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              padding: EdgeInsets.symmetric(vertical: kPaddingDefault),
-              itemCount: crCategory.categoryProduct.length,
-              itemBuilder: (BuildContext context, index) => menu_item(crProduct: crCategory.categoryProduct[index]),
+    return Material(
+      color: Colors.transparent,
+      child: Padding(
+        padding: EdgeInsets.all(kPaddingDefault),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              crCategory.nameCategory.toTitleCase(),
+              style: kStyleCategoryMenu,
             ),
-          ),
-        ],
+            Flexible(
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 15,
+                  crossAxisSpacing: 20,
+                  childAspectRatio: 0.7,
+                ),
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                padding: EdgeInsets.symmetric(vertical: kPaddingDefault),
+                itemCount: crCategory.categoryProduct.length,
+                itemBuilder: (BuildContext context, index) => menu_item(crProduct: crCategory.categoryProduct[index]),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

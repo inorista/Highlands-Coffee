@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -58,11 +59,12 @@ class _items_hotproductState extends State<items_hotproduct> with TickerProvider
         Get.to(
           () => DetailScreen(
             thucuong: _controller.dataThucuongHot[index],
+            specialKey: "hotproduct",
           ),
         );
       },
       child: Hero(
-        tag: _controller.dataThucuongHot[index].tenThucuong,
+        tag: _controller.dataThucuongHot[index].anhThucuong + "hotproduct",
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           child: Transform.scale(
@@ -92,8 +94,8 @@ class _items_hotproductState extends State<items_hotproduct> with TickerProvider
                         padding: EdgeInsets.all(kPaddingItems),
                         color: const Color(0xffF6F1E7),
                         child: ClipRRect(
-                          child: Image.network(
-                            _controller.dataThucuongHot[index].anhThucuong,
+                          child: CachedNetworkImage(
+                            imageUrl: _controller.dataThucuongHot[index].anhThucuong,
                             fit: BoxFit.fitWidth,
                           ),
                         ),

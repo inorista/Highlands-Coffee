@@ -1,5 +1,5 @@
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 var kStyleTitleAppbar = GoogleFonts.montserrat(
   fontSize: 13,
@@ -8,8 +8,8 @@ var kStyleTitleAppbar = GoogleFonts.montserrat(
 );
 
 var kStyleWelcome = GoogleFonts.openSans(
-  fontSize: 16,
-  fontWeight: FontWeight.w500,
+  fontSize: 17,
+  fontWeight: FontWeight.w700,
   color: Colors.white,
 );
 
@@ -35,9 +35,9 @@ var kStyleRegisterText = GoogleFonts.openSans(
   color: Colors.black,
 );
 
-var kStylePromoText = GoogleFonts.openSans(
+var kStylePromoText = GoogleFonts.montserrat(
   fontSize: 14,
-  fontWeight: FontWeight.w400,
+  fontWeight: FontWeight.w500,
   color: Colors.black,
 );
 
@@ -56,7 +56,7 @@ var kStyleCategory = GoogleFonts.openSans(
 var kStyleNameItems = GoogleFonts.openSans(
   fontSize: 11,
   fontWeight: FontWeight.w700,
-  color: Colors.black,
+  color: const Color(0xff333333),
 );
 
 var kStyleDetailName_Price = GoogleFonts.montserrat(
@@ -85,15 +85,15 @@ var kAddButtonText = GoogleFonts.montserrat(
 );
 
 var kStyleTitleAppbar_Order = GoogleFonts.montserrat(
-  fontSize: 15,
+  fontSize: 16,
   fontWeight: FontWeight.w600,
   color: Colors.black,
 );
 
-var kStyleTitlePromo = GoogleFonts.mulish(
+var kStyleTitlePromo = GoogleFonts.montserrat(
   fontSize: 15,
   fontWeight: FontWeight.w700,
-  color: Colors.black,
+  color: Color(0xff221f20),
 );
 
 var kStyleDescriptionPromo = GoogleFonts.notoSans(
@@ -120,17 +120,22 @@ var kStyleHeader = GoogleFonts.montserrat(
   color: Colors.black,
   letterSpacing: 0.3,
 );
-var kStyleDescription,
-    kStyleLoginHeaderText = GoogleFonts.montserrat(
-      fontSize: 13,
-      fontWeight: FontWeight.w500,
-      color: const Color(0xff221f20),
-      letterSpacing: 0.2,
-    );
+var kStyleDescription = GoogleFonts.montserrat(
+  fontSize: 13,
+  fontWeight: FontWeight.w500,
+  color: const Color(0xff221f20),
+  letterSpacing: 0.2,
+);
+var kStyleLoginHeaderText = GoogleFonts.montserrat(
+  fontSize: 13,
+  fontWeight: FontWeight.w500,
+  color: const Color(0xff221f20),
+);
 var kStyleLoginHeader = GoogleFonts.montserrat(
   fontSize: 20,
   fontWeight: FontWeight.w800,
   color: const Color(0xff221f20),
+  letterSpacing: 0.3,
 );
 var kStyleLoginPrefixPhone = GoogleFonts.poppins(
   fontSize: 16,
@@ -202,5 +207,74 @@ var kStyleTabbarUnSelected = GoogleFonts.montserrat(
 var kStyleCategoryMenu = GoogleFonts.montserrat(
   fontSize: 14,
   fontWeight: FontWeight.w600,
-  color: Color(0xff000000),
+  color: const Color(0xff000000),
+);
+
+var kStyleMenuItemName = GoogleFonts.montserrat(
+  fontSize: 14,
+  fontWeight: FontWeight.w700,
+  color: const Color(0xff333333),
+  letterSpacing: 0.1,
+);
+var kStyleMenuItemPrice = GoogleFonts.montserrat(
+  fontSize: 13,
+  fontWeight: FontWeight.w500,
+  color: Colors.black,
+  letterSpacing: 0.1,
+);
+
+var kEditConfirmBox = GoogleFonts.montserrat(
+  fontSize: 12,
+  fontWeight: FontWeight.w600,
+  color: const Color(0xff928b66),
+);
+var kStoreAddress = GoogleFonts.montserrat(
+  fontSize: 12,
+  fontWeight: FontWeight.w500,
+  color: const Color(0xff000000),
+);
+
+var kStoreName = GoogleFonts.montserrat(
+  fontSize: 13,
+  fontWeight: FontWeight.w700,
+  color: const Color(0xff000000),
+);
+
+var kPickMethodText = GoogleFonts.montserrat(
+  fontSize: 14,
+  fontWeight: FontWeight.w700,
+  color: const Color(0xff000000),
+);
+var kStyleCofirmPhone = GoogleFonts.montserrat(
+  fontSize: 14,
+  fontWeight: FontWeight.w700,
+  color: const Color(0xff221f20),
+);
+
+var kStyleLevel = GoogleFonts.openSans(
+  fontSize: 15,
+  fontWeight: FontWeight.w500,
+  color: Colors.white,
+);
+
+var kFirstLetterPoint = GoogleFonts.montserrat(
+  fontSize: 27,
+  fontWeight: FontWeight.w600,
+  color: const Color(0xfffefefe),
+);
+
+var kStylePoints = GoogleFonts.montserrat(
+  fontSize: 16,
+  fontWeight: FontWeight.w500,
+  color: const Color(0xfffefefe),
+);
+
+var kStyleTabbars = GoogleFonts.montserrat(
+  fontSize: 14,
+  fontWeight: FontWeight.w600,
+);
+
+var kStyleUnselectedTabbars = GoogleFonts.montserrat(
+  fontSize: 14,
+  fontWeight: FontWeight.w500,
 );
