@@ -90,11 +90,12 @@ var kStyleTitleAppbar_Order = GoogleFonts.montserrat(
   color: Colors.black,
 );
 
-var kStyleTitlePromo = GoogleFonts.montserrat(
-  fontSize: 15,
-  fontWeight: FontWeight.w700,
-  color: Color(0xff221f20),
-);
+var kStyleTitlePromo,
+    kStyleTitleLocation = GoogleFonts.montserrat(
+      fontSize: 15,
+      fontWeight: FontWeight.w700,
+      color: Color(0xff221f20),
+    );
 
 var kStyleDescriptionPromo = GoogleFonts.notoSans(
   fontSize: 13,
@@ -277,4 +278,99 @@ var kStyleTabbars = GoogleFonts.montserrat(
 var kStyleUnselectedTabbars = GoogleFonts.montserrat(
   fontSize: 14,
   fontWeight: FontWeight.w500,
+);
+var kStyleCartLength = GoogleFonts.montserrat(
+  fontSize: 8,
+  fontWeight: FontWeight.w600,
+  color: Colors.white,
+);
+
+var kStyleTitleAppbar_Cart = GoogleFonts.montserrat(
+  fontSize: 15,
+  fontWeight: FontWeight.w600,
+  color: Color(0xff333333),
+);
+
+var kStyleActionText = GoogleFonts.montserrat(
+  fontSize: 13,
+  fontWeight: FontWeight.w600,
+  color: Color(0xffb59664),
+);
+
+var kOrderMethodCart = GoogleFonts.montserrat(
+  fontSize: 20,
+  fontWeight: FontWeight.w700,
+  color: Color(0xffb59664),
+);
+
+var kLocationCart = GoogleFonts.openSans(
+  fontSize: 13,
+  fontWeight: FontWeight.w500,
+  color: Color(0xff333333),
+);
+
+var kInfomationCart = GoogleFonts.varelaRound(
+  fontSize: 15,
+  fontWeight: FontWeight.w500,
+  color: Color(0xff221f20),
+  letterSpacing: 0.1,
+);
+
+var kListCart = GoogleFonts.montserrat(
+  fontSize: 18,
+  fontWeight: FontWeight.w700,
+  color: Color(0xff333333),
+);
+
+var kStyleAddMoreCart = GoogleFonts.montserrat(
+  fontSize: 14,
+  fontWeight: FontWeight.w600,
+  color: Color(0xffb59664),
+);
+
+var kStylePlusIcon = GoogleFonts.montserrat(
+  fontSize: 22,
+  fontWeight: FontWeight.w500,
+  color: Color(0xffb59664),
+);
+
+var kStyleQuantityBox = GoogleFonts.openSans(
+  fontSize: 11,
+  fontWeight: FontWeight.w600,
+  color: Color(0xffb59664),
+);
+
+var kStyleTotal_OneCartItem = GoogleFonts.montserrat(
+  fontSize: 14,
+  fontWeight: FontWeight.w600,
+  color: Colors.black,
+  letterSpacing: 0.5,
+);
+
+var kStyleSize_OneCartItem = GoogleFonts.montserrat(
+  fontSize: 12,
+  fontWeight: FontWeight.w600,
+  color: Color(0xff666666),
+);
+var kStyleDot = GoogleFonts.montserrat(
+  fontSize: 18,
+  fontWeight: FontWeight.w600,
+  color: Color(0xff666666),
+);
+var kStyleNote_OneCartItem = GoogleFonts.montserrat(
+  fontSize: 12,
+  fontWeight: FontWeight.w500,
+  color: Color(0xff666666),
+);
+
+var kStyleSubTotal = GoogleFonts.montserrat(
+  fontSize: 12,
+  fontWeight: FontWeight.w500,
+  color: Color(0xff333333),
+);
+
+var kStyleDate = GoogleFonts.montserrat(
+  fontSize: 13,
+  fontWeight: FontWeight.w600,
+  color: Color(0xff666666),
 );

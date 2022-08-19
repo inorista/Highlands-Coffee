@@ -31,7 +31,7 @@ class LoginScreen extends StatelessWidget {
                   child: Container(
                     height: MediaQuery.of(context).size.height,
                     width: double.infinity,
-                    color: Color(0xfff6f1e8),
+                    color: const Color(0xfff6f1e8),
                     child: Stack(
                       children: [
                         Positioned(
@@ -52,9 +52,9 @@ class LoginScreen extends StatelessWidget {
                         Positioned.fill(
                           child: Column(
                             children: [
-                              Container(padding: EdgeInsets.only(top: kPaddingDefault)),
+                              Container(padding: const EdgeInsets.only(top: kPaddingDefault)),
                               Padding(
-                                padding: EdgeInsets.symmetric(vertical: kPaddingItems),
+                                padding: const EdgeInsets.symmetric(vertical: kPaddingItems),
                                 child: Text(
                                   "Chào Bạn!",
                                   style: kStyleLoginHeader,
@@ -65,10 +65,10 @@ class LoginScreen extends StatelessWidget {
                                 style: kStyleLoginHeaderText,
                                 textAlign: TextAlign.center,
                               ),
-                              phone_input(),
-                              checkbox_license(),
-                              Spacer(),
-                              login_button(),
+                              const phone_input(),
+                              const checkbox_license(),
+                              const Spacer(),
+                              const login_button(),
                             ],
                           ),
                         ),

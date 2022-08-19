@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:seemon/constants/style_constants..dart';
 import 'package:seemon/constants/padding_constants.dart';
 import 'package:seemon/controllers/detail_controllers.dart';
-import 'package:seemon/models/thucuong.dart';
+import 'package:seemon/models/product.dart';
 import 'package:seemon/constants/color_constants.dart';
 import 'package:intl/intl.dart';
 

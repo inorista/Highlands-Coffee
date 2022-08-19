@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ionicons/ionicons.dart';
+import 'package:seemon/constants/color_constants.dart';
 import 'package:seemon/constants/style_constants..dart';
+import 'package:unicons/unicons.dart';
 
 class home_appbar extends StatelessWidget with PreferredSizeWidget {
   const home_appbar({
@@ -22,11 +23,13 @@ class home_appbar extends StatelessWidget with PreferredSizeWidget {
       toolbarHeight: 40,
       actions: [
         IconButton(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
           onPressed: () {},
           icon: const Icon(
-            Ionicons.qr_code_outline,
-            color: Colors.black,
-            size: 16,
+            UniconsLine.qrcode_scan,
+            color: kColorCommon,
+            size: 18,
           ),
         ),
       ],

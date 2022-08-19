@@ -4,7 +4,7 @@ import 'package:fluttericon/linecons_icons.dart';
 import 'package:fluttericon/typicons_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:ionicons/ionicons.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:seemon/controllers/home_controllers.dart';
 import 'package:seemon/views/home/home_screen.dart';
 import 'package:seemon/views/home/components/home_appbar.dart';
@@ -43,7 +43,7 @@ class DashboardScreen extends StatelessWidget {
               type: BottomNavigationBarType.fixed,
               selectedItemColor: Color(0xffB3282C),
               unselectedItemColor: Color(0xff685A53),
-              iconSize: 20,
+              iconSize: 22,
               showUnselectedLabels: true,
               selectedFontSize: 10,
               unselectedFontSize: 10,
@@ -60,7 +60,7 @@ class DashboardScreen extends StatelessWidget {
                 BottomNavigationBarItem(
                   icon: Padding(
                     padding: EdgeInsets.symmetric(vertical: 2),
-                    child: Icon(Linecons.doc),
+                    child: Icon(Iconsax.receipt),
                   ),
                   label: "Đơn hàng",
                 ),
@@ -74,14 +74,14 @@ class DashboardScreen extends StatelessWidget {
                 BottomNavigationBarItem(
                   icon: Padding(
                     padding: EdgeInsets.symmetric(vertical: 2),
-                    child: Icon(Linecons.wallet),
+                    child: Icon(Iconsax.wallet_3),
                   ),
                   label: "Trả trước",
                 ),
                 BottomNavigationBarItem(
                   icon: Padding(
                     padding: EdgeInsets.symmetric(vertical: 2),
-                    child: Icon(LineariconsFree.users),
+                    child: Icon(Iconsax.user),
                   ),
                   label: "Tài Khoản",
                 ),

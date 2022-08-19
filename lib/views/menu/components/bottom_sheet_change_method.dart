@@ -42,12 +42,12 @@ class _bottom_sheet_change_methodState extends State<bottom_sheet_change_method>
 
     return Container(
       height: MediaQuery.of(context).size.height / 4 + 20,
-      padding: EdgeInsets.symmetric(horizontal: kPaddingDefault),
+      padding: const EdgeInsets.symmetric(horizontal: kPaddingDefault),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Spacer(),
+          const Spacer(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -59,25 +59,25 @@ class _bottom_sheet_change_methodState extends State<bottom_sheet_change_method>
                   color: Color(0xff666666),
                 ),
               ),
-              Spacer(),
-              Text("Chọn Phương thức giao hàng"),
-              Spacer(flex: 2),
+              const Spacer(),
+              const Text("Chọn Phương thức giao hàng"),
+              const Spacer(flex: 2),
             ],
           ),
-          Spacer(),
+          const Spacer(),
           Container(
             height: 90,
-            padding: EdgeInsets.all(kPaddingDefault),
+            padding: const EdgeInsets.all(kPaddingDefault),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(7),
-              color: Color(0xfff7d046),
+              color: const Color(0xfff7d046),
             ),
             child: Stack(
               children: [
                 Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(right: kPaddingDefault),
+                      padding: const EdgeInsets.only(right: kPaddingDefault),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(50),
                         child: Image.asset("assets/images/payment_method.jpg"),
@@ -92,7 +92,7 @@ class _bottom_sheet_change_methodState extends State<bottom_sheet_change_method>
                               Text("Nhận món tại", style: kPickMethodText),
                             ],
                           ),
-                          Spacer(),
+                          const Spacer(),
                           Text("Lê Văn Sỹ", style: kStoreName),
                           Flexible(
                             child: Text(
@@ -110,10 +110,10 @@ class _bottom_sheet_change_methodState extends State<bottom_sheet_change_method>
                   right: 0,
                   top: 0,
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: kPaddingDefault * 2, vertical: kPaddingItems),
+                    padding: const EdgeInsets.symmetric(horizontal: kPaddingDefault * 2, vertical: kPaddingItems),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Color(0xffedc945),
+                      color: const Color(0xffedc945),
                     ),
                     child: Center(
                       child: Text("Sửa", style: kEditConfirmBox),
@@ -123,7 +123,7 @@ class _bottom_sheet_change_methodState extends State<bottom_sheet_change_method>
               ],
             ),
           ),
-          Spacer(),
+          const Spacer(),
           SizedBox(
             width: MediaQuery.of(context).size.width / 1.5,
             child: GestureDetector(
@@ -133,14 +133,14 @@ class _bottom_sheet_change_methodState extends State<bottom_sheet_change_method>
               child: FlatButton(
                 onPressed: () => Get.back(),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                highlightColor: Color(0xffB2282D),
-                color: Color(0xffB2282D),
-                splashColor: Color(0xffD43E43),
+                highlightColor: const Color(0xffB2282D),
+                color: const Color(0xffB2282D),
+                splashColor: const Color(0xffD43E43),
                 child: Center(
                   child: AnimatedOpacity(
                     opacity: _opacity,
                     curve: Curves.bounceIn,
-                    duration: Duration(milliseconds: 200),
+                    duration: const Duration(milliseconds: 200),
                     child: Text(
                       "Xác nhận",
                       style: kStyleLoginButtonText_reverse,
@@ -150,7 +150,7 @@ class _bottom_sheet_change_methodState extends State<bottom_sheet_change_method>
               ),
             ),
           ),
-          Spacer(flex: 2),
+          const Spacer(flex: 2),
         ],
       ),
     );

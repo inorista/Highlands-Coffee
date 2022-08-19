@@ -17,7 +17,7 @@ class OrderScreen extends StatelessWidget {
       init: HomeController(),
       builder: (_controller) {
         Widget getBody() {
-          if (_controller.auth!.currentUser != null) {
+          if (_controller.auth?.currentUser != null) {
             return DefaultTabController(
               length: 2,
               child: Column(

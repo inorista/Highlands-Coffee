@@ -1,11 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ionicons/ionicons.dart';
 import 'package:seemon/constants/padding_constants.dart';
 import 'package:seemon/constants/style_constants..dart';
 import 'package:seemon/controllers/home_controllers.dart';
 import 'package:seemon/models/promo.dart';
+import 'package:seemon/models/user.dart';
 
 class register_promo extends StatelessWidget {
   const register_promo({
@@ -44,14 +45,17 @@ class register_promo extends StatelessWidget {
                     ),
                   ),
                 ),
-                Flexible(
-                  child: Padding(
-                    padding: EdgeInsets.only(left: kPaddingDefault),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Spacer(),
-                        Row(
+                StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+                  stream: FirebaseFirestore.instance
+                      .collection("users")
+                      .doc("${_controller.auth?.currentUser?.phoneNumber}")
+                      .snapshots(),
+                  builder: (context, snapshot) {
+                    Widget getInfoCompleteAccount() {
+                      final isFinishedUpdateAccount = snapshot.data?.data()?['hoanthanhhoso'];
+
+                      if (!isFinishedUpdateAccount) {
+                        return Row(
                           children: [
                             Text(
                               "HOÀN THÀNH THÔNG TIN TÀI KHOẢN",
@@ -63,12 +67,7 @@ class register_promo extends StatelessWidget {
                                 height: 16,
                                 width: 16,
                                 child: ElevatedButton(
-                                  onPressed: () {
-                                    final listPromo = [combo_thang_6, tranh_thu_upsize];
-                                    for (int i = 0; i < listPromo.length; i++) {
-                                      _controller.addPromo(listPromo[i]);
-                                    }
-                                  },
+                                  onPressed: () {},
                                   style: ElevatedButton.styleFrom(
                                     shadowColor: Colors.transparent,
                                     elevation: 0,
@@ -77,7 +76,7 @@ class register_promo extends StatelessWidget {
                                     primary: Color(0xffbfbcb5), // <-- Button color
                                     onPrimary: Color(0xff7c786f), // <-- Splash color
                                   ),
-                                  child: Icon(
+                                  child: const Icon(
                                     EvaIcons.arrowIosForward,
                                     size: 12,
                                     color: Colors.white,
@@ -86,19 +85,56 @@ class register_promo extends StatelessWidget {
                               ),
                             ),
                           ],
-                        ),
-                        Spacer(),
-                        Flexible(
+                        );
+                      }
+
+                      return Text(
+                        "CHÀO MỪNG BẠN TRỞ LẠI",
+                        style: kStyleRegisterText,
+                      );
+                    }
+
+                    Widget getPromoBonus() {
+                      final isFinishedUpdateAccount = snapshot.data!.data()!['hoanthanhhoso'];
+                      if (!isFinishedUpdateAccount) {
+                        return Flexible(
                           child: Text(
                             "Nhận ưu đãi 10.000 đồng khi cập nhật thông tin tài khoản",
                             style: kStylePromoText,
                             overflow: TextOverflow.visible,
                           ),
+                        );
+                      }
+                      return Flexible(
+                        child: Text(
+                          "Cùng thưởng thức những siêu phẩm đến từ Highlands Coffee nào",
+                          style: kStylePromoText,
+                          overflow: TextOverflow.visible,
                         ),
-                        Spacer(flex: 4),
-                      ],
-                    ),
-                  ),
+                      );
+                    }
+
+                    if (!snapshot.hasData) {
+                      return CircularProgressIndicator.adaptive();
+                    }
+                    return Flexible(
+                      child: Padding(
+                        padding: EdgeInsets.only(left: kPaddingDefault),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Spacer(),
+                            Row(
+                              children: [getInfoCompleteAccount()],
+                            ),
+                            Spacer(),
+                            getPromoBonus(),
+                            Spacer(flex: 4),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),

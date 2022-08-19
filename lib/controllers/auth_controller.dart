@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:seemon/models/user.dart';
+
 import 'package:seemon/views/pinput/pinput_screen.dart';
 import 'dart:math';
 
@@ -109,7 +111,7 @@ class AuthController extends GetxController {
 
   void signingwithPhoneNumber() async {
     await _auth.verifyPhoneNumber(
-      phoneNumber: "+84${_currentPhone}",
+      phoneNumber: "+84 ${_currentPhone}",
       verificationCompleted: (AuthCredential credential) async {
         await _auth.signInWithCredential(credential);
       },
@@ -136,10 +138,31 @@ class AuthController extends GetxController {
         final userID = rng.nextInt(89999999) + 10000000;
         await FirebaseFirestore.instance.collection("users").doc("+84${phoneNumber}").set({
           'userid': userID,
+          'email': "",
+          'gioitinh': "",
+          'hoanthanhhoso': false,
+          'hoten': "",
+          'point': 0,
+          'sodienthoai': "",
         });
       }
     } catch (e) {
       print("Lỗi ${e}");
+    }
+  }
+
+  void updateInfomationUser(String phoneNumber, String email, String gioitinh, String hoten) async {
+    final documentID = await FirebaseFirestore.instance.collection("users").doc("+84${phoneNumber}");
+    try {
+      await documentID.update(
+        {
+          'email': email,
+          'gioitinh': gioitinh,
+          'hoten': hoten,
+        },
+      );
+    } catch (e) {
+      print(e);
     }
   }
 

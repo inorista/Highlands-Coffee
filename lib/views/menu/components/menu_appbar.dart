@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:seemon/constants/padding_constants.dart';
 import 'package:seemon/constants/string_format.dart';
 import 'package:seemon/constants/style_constants..dart';
+import 'package:seemon/controllers/cart_controller.dart';
 import 'package:seemon/controllers/home_controllers.dart';
 
 class menu_appbar extends StatefulWidget with PreferredSizeWidget {
@@ -28,8 +29,9 @@ class _menu_appbarState extends State<menu_appbar> with TickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     HomeController _controller = Get.put(HomeController());
+    CartController _cart = Get.put(CartController());
     return AppBar(
-      leadingWidth: MediaQuery.of(context).size.width,
+      leadingWidth: 150,
       elevation: 0,
       backgroundColor: Color(0xffa43533),
       leading: Padding(
@@ -38,7 +40,7 @@ class _menu_appbarState extends State<menu_appbar> with TickerProviderStateMixin
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 4, horizontal: 12),
+              padding: EdgeInsets.symmetric(vertical: 4, horizontal: 10),
               child: Image.asset(
                 "assets/images/location.png",
                 height: 25,

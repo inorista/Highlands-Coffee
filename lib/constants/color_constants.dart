@@ -36,3 +36,10 @@ const kPinNotFilled = Color(0xff979797);
 
 const kIndicatorTabbar = Color(0xffa43533);
 const kUnselectedTabbar = Color(0xff655a54);
+const kColorCommon = Color(0xff655a54);
+
+const kColorCartButton = Color(0xffbe4d4f);
+
+const kColorHighlightCartButton = Color(0xffe5c8c8);
+const kCommonCartColor = Color(0xffb59664);
+const kCommonBackgroundCart = Color(0xfff6f1e8);

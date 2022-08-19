@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:seemon/constants/padding_constants.dart';
 import 'package:seemon/constants/string_format.dart';
 import 'package:seemon/constants/style_constants..dart';
-import 'package:seemon/models/thucuong.dart';
+import 'package:seemon/models/product.dart';
 import 'package:intl/intl.dart';
 import 'package:seemon/views/detail_product/detail_screen.dart';
 
@@ -14,7 +14,7 @@ class menu_item extends StatelessWidget {
     required this.crProduct,
   }) : super(key: key);
 
-  final thucuong crProduct;
+  final product crProduct;
 
   @override
   Widget build(BuildContext context) {

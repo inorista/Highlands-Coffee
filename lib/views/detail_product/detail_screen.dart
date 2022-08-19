@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:seemon/constants/style_constants..dart';
 import 'package:seemon/constants/padding_constants.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:seemon/controllers/cart_controller.dart';
 import 'package:seemon/controllers/detail_controllers.dart';
 import 'package:seemon/constants/string_format.dart';
 import 'package:intl/intl.dart';
@@ -24,6 +25,7 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final currencyFormatter = NumberFormat('###,000', 'ID');
     DetailController _controller = Get.put(DetailController());
+    CartController _cartcontroller = Get.put(CartController());
     _controller.getThucuong(thucuong);
     return Scaffold(
       backgroundColor: Color(0xffF8F1E7),
@@ -167,7 +169,9 @@ class DetailScreen extends StatelessWidget {
                         ],
                       ),
                       Spacer(),
-                      add_button(),
+                      add_button(
+                        item: this.thucuong,
+                      ),
                       Spacer(),
                     ],
                   ),

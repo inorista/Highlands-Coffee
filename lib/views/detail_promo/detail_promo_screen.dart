@@ -57,7 +57,7 @@ class DetailPromoScreen extends StatelessWidget {
                             top: 30,
                             child: GestureDetector(
                               onTap: () => Get.back(),
-                              child: Icon(
+                              child: const Icon(
                                 EvaIcons.close,
                                 size: 30,
                                 color: Colors.black54,

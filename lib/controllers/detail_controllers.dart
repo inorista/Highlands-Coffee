@@ -2,7 +2,7 @@ import 'package:flutter/animation.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:get/get.dart';
-import 'package:seemon/models/thucuong.dart';
+import 'package:seemon/models/product.dart';
 
 class DetailController extends GetxController with SingleGetTickerProviderMixin {
   // Config Animtion for Add Button
@@ -26,7 +26,7 @@ class DetailController extends GetxController with SingleGetTickerProviderMixin 
   var total = 0.obs;
   var currentPrice = 0.obs;
 
-  void getThucuong(thucuong thucuong) {
+  void getThucuong(product thucuong) {
     currentPrice.value = thucuong.listPrice[0].toInt();
     total.value = currentPrice.value * quantity.value;
     update();

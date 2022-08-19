@@ -12,7 +12,7 @@ import 'package:seemon/constants/padding_constants.dart';
 import 'package:seemon/constants/style_constants..dart';
 import 'package:seemon/models/category.dart';
 import 'package:seemon/models/promo.dart';
-import 'package:seemon/models/thucuong.dart';
+import 'package:seemon/models/product.dart';
 import 'package:seemon/views/login/login_screen.dart';
 import 'package:seemon/views/menu/components/bottom_sheet_change_method.dart';
 
@@ -48,8 +48,8 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
   final db_promo = FirebaseFirestore.instance.collection("promo");
 
   // List thức uống nổi bật
-  List<thucuong> dataThucuongHot = [];
-  List<thucuong> listAllProduct = [];
+  List<product> dataThucuongHot = [];
+  List<product> listAllProduct = [];
   List<khuyenmai> listAllPromo = [];
 
   // CURRENT USER
@@ -64,6 +64,9 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
     _futureAllPromo = fetchDataPromo();
     allCategory = [ca_phe, tranhietdoi, tra, freeze, banh];
     _tabController = TabController(length: allCategory.length, vsync: this);
+    _auth.authStateChanges().listen((User? user) {
+      print(user);
+    });
     super.onInit();
   }
 
@@ -88,7 +91,7 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
     final tempData = await datafromDB.docs.map((e) => e.data()).toList();
     dataThucuongHot = await tempData
         .map(
-          (data) => thucuong(
+          (data) => product(
             tenThucuong: data["tenThucuong"],
             anhThucuong: data["anhThucuong"],
             theloai: data["theloai"],
@@ -107,7 +110,7 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
     final tempAllData = await datafromDB_all.docs.map((e) => e.data()).toList();
     listAllProduct = await tempAllData
         .map(
-          (data) => thucuong(
+          (data) => product(
             tenThucuong: data["tenThucuong"],
             anhThucuong: data["anhThucuong"],
             theloai: data["theloai"],
