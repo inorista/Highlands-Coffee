@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:seemon/constants/padding_constants.dart';
+import 'package:seemon/constants/style_constants..dart';
 import 'package:seemon/controllers/home_controllers.dart';
 
 class HistoryScreen extends StatelessWidget {
@@ -29,7 +31,10 @@ class HistoryScreen extends StatelessWidget {
                         height: 100,
                         width: 100,
                       ),
-                      Text("Đặt món và thưởng thức thôi nào"),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: kPaddingDefault),
+                        child: Text("Đặt món và thưởng thức thôi nào", style: kStyleTotalOrderItems),
+                      ),
                     ],
                   ),
                 );

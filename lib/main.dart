@@ -7,8 +7,14 @@ import 'package:get/get.dart';
 import 'package:seemon/binding/home_binding.dart';
 import 'package:seemon/injection.dart';
 import 'package:seemon/views/dashboard/dashboard_screen.dart';
+import 'package:flutter/services.dart';
 
 Future<void> main() async {
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent, // status bar color
+    ),
+  );
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   configInjection();

@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ndialog/ndialog.dart';
 import 'package:seemon/constants/padding_constants.dart';
 import 'package:seemon/constants/style_constants..dart';
 import 'package:seemon/controllers/cart_controller.dart';
@@ -22,14 +24,30 @@ class add_button extends StatelessWidget {
 
     return Obx(
       () => GestureDetector(
-        onTap: () {
-          _cart.addToCart(
-            this.item,
-            _controller.quantity.toInt(),
-            this.item.listSize[_controller.selectedSize],
-            _controller.total.value,
+        onTap: () async {
+          await CustomProgressDialog.future(
+            context,
+            blur: 5,
+            future: Future.delayed(
+              Duration(milliseconds: 500),
+              () {
+                _cart.addToCart(
+                  this.item,
+                  _controller.quantity.toInt(),
+                  this.item.listSize[_controller.selectedSize],
+                  _controller.total.value,
+                );
+                Get.back();
+              },
+            ),
+            loadingWidget: Center(
+              child: Container(
+                alignment: Alignment.center,
+                child: CupertinoActivityIndicator(),
+              ),
+            ),
+            backgroundColor: Colors.transparent,
           );
-          Get.back();
         },
         child: Padding(
           padding: EdgeInsets.all(kPaddingDefault),

@@ -7,6 +7,8 @@ import 'package:seemon/constants/padding_constants.dart';
 import 'package:seemon/constants/style_constants..dart';
 import 'package:seemon/controllers/home_controllers.dart';
 import 'package:intl/intl.dart';
+import 'package:seemon/models/order.dart';
+import 'package:seemon/views/order/components/order_items.dart';
 
 class ProcessingScreen extends StatelessWidget {
   const ProcessingScreen({
@@ -19,10 +21,8 @@ class ProcessingScreen extends StatelessWidget {
       init: HomeController(),
       builder: (_controller) {
         final currentPhone = _controller.auth?.currentUser?.phoneNumber;
-        final db_process = FirebaseFirestore.instance.collection("users").doc(currentPhone).collection("processing");
-
         return StreamBuilder<QuerySnapshot>(
-          stream: db_process.snapshots(),
+          stream: _controller.db_process,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               if (snapshot.data!.docs.length == 0) {
@@ -35,73 +35,23 @@ class ProcessingScreen extends StatelessWidget {
                         height: 100,
                         width: 100,
                       ),
-                      Text("Đặt món và thưởng thức thôi nào"),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: kPaddingDefault),
+                        child: Text("Đặt món và thưởng thức thôi nào", style: kStyleTotalOrderItems),
+                      ),
                     ],
                   ),
                 );
               }
               return ListView.builder(
                 scrollDirection: Axis.vertical,
-                physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+                physics: BouncingScrollPhysics(
+                  parent: AlwaysScrollableScrollPhysics(),
+                ),
                 itemCount: snapshot.data!.docs.length,
                 itemBuilder: (context, index) {
-                  final status = snapshot.data?.docs[index]["status"];
-                  final timeCreated = DateFormat("d, MMM").format(snapshot.data?.docs[index]["createdAt"].toDate());
-
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: kPaddingDefault, vertical: kPaddingDefault / 1.5),
-                    child: Container(
-                      padding: const EdgeInsets.all(kPaddingItems),
-                      height: 100,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.4),
-                            spreadRadius: 1,
-                            blurRadius: 5,
-                            offset: const Offset(1, 2), // changes position of shadow
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                height: 13,
-                                width: 13,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
-                                  color: kCommonCartColor,
-                                ),
-                                child: Center(
-                                  child: const Icon(
-                                    EvaIcons.checkmark,
-                                    size: 12,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(horizontal: kPaddingSize),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text("${status}", style: kStyleSize_OneCartItem),
-                                    Text(" · ", style: kStyleDot),
-                                    Text("${timeCreated}", style: kStyleDate),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
+                  return order_items(
+                    order: order.fromJson(snapshot.data!.docs[index].data() as Map<String, dynamic>),
                   );
                 },
               );

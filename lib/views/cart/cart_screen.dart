@@ -1,9 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:get/get.dart';
+import 'package:ndialog/ndialog.dart';
 import 'package:seemon/constants/color_constants.dart';
 import 'package:seemon/constants/padding_constants.dart';
 import 'package:seemon/constants/string_format.dart';
@@ -27,7 +29,7 @@ class CartScreen extends StatelessWidget {
             toolbarHeight: 50,
             titleTextStyle: kStyleTitleAppbar_Cart,
             backgroundColor: Colors.white,
-            title: Text("Thanh toán"),
+            title: Text("Thanh toán", style: kStyleTitleAppbar_Order),
             centerTitle: true,
             elevation: 10,
             shadowColor: Colors.black26,
@@ -36,9 +38,25 @@ class CartScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: kPaddingDefault),
                 child: Center(
                   child: GestureDetector(
-                    onTap: () {
-                      _controller.cleanCart();
-                      Get.back();
+                    onTap: () async {
+                      await CustomProgressDialog.future(
+                        context,
+                        blur: 5,
+                        future: Future.delayed(
+                          Duration(milliseconds: 1500),
+                          () {
+                            _controller.cleanCart();
+                            Get.back();
+                          },
+                        ),
+                        loadingWidget: Center(
+                          child: Container(
+                            alignment: Alignment.center,
+                            child: CupertinoActivityIndicator(),
+                          ),
+                        ),
+                        backgroundColor: Colors.transparent,
+                      );
                     },
                     child: Text(
                       "Xóa tất cả",
@@ -317,7 +335,7 @@ class CartScreen extends StatelessWidget {
                                           Padding(
                                             padding: const EdgeInsets.symmetric(horizontal: kPaddingItems),
                                             child: Container(
-                                              width: MediaQuery.of(context).size.width / 1.32,
+                                              width: MediaQuery.of(context).size.width / 1.35,
                                               child: Column(
                                                 crossAxisAlignment: CrossAxisAlignment.start,
                                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -416,7 +434,7 @@ class CartScreen extends StatelessWidget {
                 ],
               ),
               Positioned.fill(
-                top: 670,
+                top: MediaQuery.of(context).size.height - 150,
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(

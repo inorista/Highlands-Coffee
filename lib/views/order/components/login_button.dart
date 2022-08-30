@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:seemon/constants/padding_constants.dart';
 import 'package:seemon/constants/style_constants..dart';
+import 'package:seemon/controllers/home_controllers.dart';
+import 'package:seemon/injection.dart';
 
 class login_button extends StatefulWidget {
   const login_button({
@@ -47,7 +49,9 @@ class _login_buttonState extends State<login_button> {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
           highlightColor: const Color(0xffD43E43),
           splashColor: const Color(0xffD43E43),
-          onPressed: () {},
+          onPressed: () {
+            locator.get<HomeController>().showLoginPage(context);
+          },
           minWidth: MediaQuery.of(context).size.width,
           color: Color(0xffB2282D),
           child: Padding(

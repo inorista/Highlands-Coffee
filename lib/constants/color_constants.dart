@@ -43,3 +43,5 @@ const kColorCartButton = Color(0xffbe4d4f);
 const kColorHighlightCartButton = Color(0xffe5c8c8);
 const kCommonCartColor = Color(0xffb59664);
 const kCommonBackgroundCart = Color(0xfff6f1e8);
+
+const kBackgroundColorUpdate = Color(0xffa43634);

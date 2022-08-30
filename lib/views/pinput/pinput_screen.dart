@@ -9,6 +9,8 @@ import 'package:seemon/constants/color_constants.dart';
 import 'package:seemon/constants/padding_constants.dart';
 import 'package:seemon/constants/style_constants..dart';
 import 'package:seemon/controllers/auth_controller.dart';
+import 'package:seemon/controllers/home_controllers.dart';
+import 'package:seemon/injection.dart';
 import 'package:seemon/views/dashboard/dashboard_screen.dart';
 import 'package:seemon/views/home/home_screen.dart';
 import 'package:seemon/views/login/components/checkbox_license.dart';
@@ -31,7 +33,7 @@ class PinputScreen extends StatelessWidget {
       child: Container(
         height: MediaQuery.of(context).size.height,
         width: double.infinity,
-        color: Color(0xfff6f1e8),
+        color: const Color(0xfff6f1e8),
         child: Stack(
           children: [
             Positioned(
@@ -52,9 +54,9 @@ class PinputScreen extends StatelessWidget {
             Positioned.fill(
               child: Column(
                 children: [
-                  Container(padding: EdgeInsets.only(top: kPaddingDefault)),
+                  Container(padding: const EdgeInsets.only(top: kPaddingDefault)),
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: kPaddingDefault),
+                    padding: const EdgeInsets.symmetric(vertical: kPaddingDefault),
                     child: Text(
                       "Xác thực Số Điện Thoại",
                       style: kStyleLoginHeader,
@@ -66,7 +68,7 @@ class PinputScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: kPaddingDefault),
+                    padding: const EdgeInsets.symmetric(vertical: kPaddingDefault),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -84,8 +86,9 @@ class PinputScreen extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: kPaddingDefault * 2),
+                    padding: const EdgeInsets.symmetric(vertical: kPaddingDefault * 2),
                     child: Pinput(
+                      androidSmsAutofillMethod: AndroidSmsAutofillMethod.smsRetrieverApi,
                       controller: pinController,
                       closeKeyboardWhenCompleted: true,
                       focusNode: pinputFocusNode,
@@ -98,7 +101,7 @@ class PinputScreen extends StatelessWidget {
                           fontSize: 22,
                           color: Colors.black,
                         ),
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           border: Border(
                             bottom: BorderSide(
                               color: kPinNotFilled,
@@ -115,7 +118,7 @@ class PinputScreen extends StatelessWidget {
                           fontSize: 22,
                           color: Colors.black,
                         ),
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           border: Border(
                             bottom: BorderSide(
                               color: kPinFilled,
@@ -127,18 +130,20 @@ class PinputScreen extends StatelessWidget {
                       pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
                       showCursor: true,
                       onCompleted: (pin) async {
-                        if (await _controller.verifyCode(pin) == true) {
-                          Future.delayed(Duration(seconds: 2), () {
-                            Get.delete<AuthController>()
-                                .then((value) => Get.back())
-                                .then((value) => Get.offAll(() => DashboardScreen()));
-                          });
-                        }
+                        await _controller.verifyCode(pin);
+                        Future.delayed(
+                          const Duration(seconds: 2),
+                          () async {
+                            Get.back();
+                            Get.delete<AuthController>();
+                            locator.get<HomeController>().auth?.currentUser?.reload();
+                          },
+                        );
                       },
                     ),
                   ),
-                  Spacer(),
-                  confirm_button(),
+                  const Spacer(),
+                  const confirm_button(),
                 ],
               ),
             ),

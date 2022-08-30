@@ -10,6 +10,7 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:seemon/constants/color_constants.dart';
 import 'package:seemon/constants/padding_constants.dart';
 import 'package:seemon/constants/style_constants..dart';
+import 'package:seemon/injection.dart';
 import 'package:seemon/models/category.dart';
 import 'package:seemon/models/promo.dart';
 import 'package:seemon/models/product.dart';
@@ -17,6 +18,10 @@ import 'package:seemon/views/login/login_screen.dart';
 import 'package:seemon/views/menu/components/bottom_sheet_change_method.dart';
 
 class HomeController extends GetxController with SingleGetTickerProviderMixin {
+  // CURRENT USER
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  FirebaseAuth? get auth => this._auth;
+
   late Future _futureHotProduct;
   late Future _futureAllProduct;
   late Future _futureAllPromo;
@@ -46,15 +51,12 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
   // Firestore access hot product
   final db_hotproduct = FirebaseFirestore.instance.collection("products");
   final db_promo = FirebaseFirestore.instance.collection("promo");
-
+  Stream<QuerySnapshot>? db_process;
+  Stream<DocumentSnapshot<Map<String, dynamic>>>? db_getPoint;
   // List thức uống nổi bật
   List<product> dataThucuongHot = [];
   List<product> listAllProduct = [];
   List<khuyenmai> listAllPromo = [];
-
-  // CURRENT USER
-  FirebaseAuth _auth = FirebaseAuth.instance;
-  FirebaseAuth? get auth => this._auth;
 
   @override
   void onInit() async {
@@ -65,8 +67,17 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
     allCategory = [ca_phe, tranhietdoi, tra, freeze, banh];
     _tabController = TabController(length: allCategory.length, vsync: this);
     _auth.authStateChanges().listen((User? user) {
-      print(user);
+      _auth.currentUser?.reload();
+      update();
     });
+    db_process = await FirebaseFirestore.instance
+        .collection("users")
+        .doc(_auth.currentUser?.phoneNumber)
+        .collection("processing")
+        .orderBy("createdAt", descending: true)
+        .snapshots();
+
+    db_getPoint = await FirebaseFirestore.instance.collection("users").doc(_auth.currentUser?.phoneNumber).snapshots();
     super.onInit();
   }
 
@@ -78,7 +89,7 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
   }
 
   void updateUI() async {
-    _auth = _auth;
+    _auth.currentUser?.reload();
     update();
   }
 
@@ -200,6 +211,12 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
     } catch (e) {
       print("Lỗi ${e}");
     }
+  }
+
+  Future<void> logOut() async {
+    await FirebaseAuth.instance.signOut();
+    await _auth.currentUser?.reload();
+    update();
   }
 
   void addPromo(khuyenmai crPromo) async {

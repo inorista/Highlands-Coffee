@@ -55,6 +55,8 @@ dependencies:
   iconsax: ^0.0.8
   unicons: ^2.1.0
   get_it: ^7.2.0
+  flutter_custom_clippers: ^2.0.0
+  ndialog: ^4.1.1+1
 
 
 

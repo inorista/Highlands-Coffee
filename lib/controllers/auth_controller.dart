@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:seemon/controllers/home_controllers.dart';
+import 'package:seemon/injection.dart';
 import 'package:seemon/models/user.dart';
 
 import 'package:seemon/views/pinput/pinput_screen.dart';
@@ -123,11 +125,7 @@ class AuthController extends GetxController {
       },
       codeAutoRetrievalTimeout: (String verificationId) {},
     );
-    update();
-  }
-
-  void updateAuth() async {
-    _auth = _auth;
+    await _auth.currentUser?.reload();
     update();
   }
 
@@ -144,6 +142,7 @@ class AuthController extends GetxController {
           'hoten': "",
           'point': 0,
           'sodienthoai': "",
+          'level': 1,
         });
       }
     } catch (e) {
@@ -166,16 +165,19 @@ class AuthController extends GetxController {
     }
   }
 
-  Future<bool> verifyCode(String pinCode) async {
-    PhoneAuthCredential phoneAuthCredential = PhoneAuthProvider.credential(
+  Future<void> verifyCode(String pinCode) async {
+    PhoneAuthCredential phoneAuthCredential = await PhoneAuthProvider.credential(
       verificationId: _verificationID,
       smsCode: pinCode,
     );
     await _auth.signInWithCredential(phoneAuthCredential);
-    if (await _auth.currentUser != null) {
+
+    if (_auth.currentUser != null) {
+      locator.get<HomeController>().auth?.currentUser?.reload();
+      locator.get<HomeController>().update();
       createDocumentUser(_currentPhone);
-      return true;
     }
-    return false;
+    _auth.currentUser?.reload();
+    update();
   }
 }

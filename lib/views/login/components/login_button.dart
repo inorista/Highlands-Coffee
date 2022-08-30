@@ -74,7 +74,7 @@ class _login_buttonState extends State<login_button> {
                 if (authController.isAcceptLicense == true) {
                   if (authController.checkingAuthPhone() == true) {
                     authController.signingwithPhoneNumber();
-
+                    Future.delayed(Duration(seconds: 2));
                     Navigator.of(context).push(
                       /*MaterialWithModals*/ PageRouteBuilder(
                         transitionDuration: Duration(milliseconds: 100),

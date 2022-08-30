@@ -14,13 +14,29 @@
       },
       "oauth_client": [
         {
+          "client_id": "608735893998-7esjuq1ka7alu722r9cu184jb6e3210m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.seemon",
+            "certificate_hash": "8927ef9f7c90043f28ecea0ff2be2a1d1447ac8c"
+          }
+        },
+        {
+          "client_id": "608735893998-oumbr7ee9tekjjgi07rmflvs7lkbpnge.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.seemon",
+            "certificate_hash": "2f1896db720cc8317f9dcf48de6dd2beca0fe966"
+          }
+        },
+        {
           "client_id": "608735893998-dqpkcllhilp0m26vos30rf6hj1qru4bo.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC3WtqN6M6BlkGtO0_dRQX0bRA0-0se55s"
+          "current_key": "AIzaSyABmyCYNnCQ7SXV52-OstZe8Obgp2gNX-o"
         }
       ],
       "services": {
