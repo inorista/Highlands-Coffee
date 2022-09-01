@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:seemon/constants/color_constants.dart';
 import 'package:seemon/constants/padding_constants.dart';
 import 'package:seemon/constants/style_constants..dart';
+import 'package:seemon/controllers/home_controllers.dart';
+import 'package:seemon/views/map/map_screen.dart';
 
 class bottom_sheet_change_method extends StatefulWidget {
   const bottom_sheet_change_method({
@@ -40,119 +42,133 @@ class _bottom_sheet_change_methodState extends State<bottom_sheet_change_method>
       });
     }
 
-    return Container(
-      height: MediaQuery.of(context).size.height / 4 + 20,
-      padding: const EdgeInsets.symmetric(horizontal: kPaddingDefault),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Spacer(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return GetBuilder<HomeController>(
+      init: HomeController(),
+      builder: (controller) {
+        return Container(
+          height: MediaQuery.of(context).size.height / 4 + 20,
+          padding: const EdgeInsets.symmetric(horizontal: kPaddingDefault),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              GestureDetector(
-                onTap: () => Get.back(),
-                child: const Icon(
-                  EvaIcons.close,
-                  size: 32,
-                  color: Color(0xff666666),
-                ),
+              const Spacer(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    onTap: () => Get.back(),
+                    child: const Icon(
+                      EvaIcons.close,
+                      size: 32,
+                      color: Color(0xff666666),
+                    ),
+                  ),
+                  const Spacer(),
+                  const Text("Chọn Phương thức giao hàng"),
+                  const Spacer(flex: 2),
+                ],
               ),
               const Spacer(),
-              const Text("Chọn Phương thức giao hàng"),
-              const Spacer(flex: 2),
-            ],
-          ),
-          const Spacer(),
-          Container(
-            height: 90,
-            padding: const EdgeInsets.all(kPaddingDefault),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(7),
-              color: const Color(0xfff7d046),
-            ),
-            child: Stack(
-              children: [
-                Row(
+              Container(
+                height: 90,
+                padding: const EdgeInsets.all(kPaddingDefault),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(7),
+                  color: const Color(0xfff7d046),
+                ),
+                child: Stack(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: kPaddingDefault),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(50),
-                        child: Image.asset("assets/images/payment_method.jpg"),
-                      ),
-                    ),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: kPaddingDefault),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(50),
+                            child: Image.asset("assets/images/payment_method.jpg"),
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Nhận món tại", style: kPickMethodText),
+                              Row(
+                                children: [
+                                  Text(
+                                    "Nhận món tại",
+                                    style: kPickMethodText,
+                                  ),
+                                ],
+                              ),
+                              const Spacer(),
+                              Text(
+                                "${controller.currentBranch?.branchName}",
+                                style: kStoreName,
+                              ),
+                              Flexible(
+                                child: Text(
+                                  "${controller.currentBranch?.branchAddress}",
+                                  overflow: TextOverflow.ellipsis,
+                                  style: kStoreAddress,
+                                ),
+                              ),
                             ],
                           ),
-                          const Spacer(),
-                          Text("Lê Văn Sỹ", style: kStoreName),
-                          Flexible(
-                            child: Text(
-                              "188A Lê Văn Sỹ, Phường 10, Phú Nhuận, Hồ Chí Minh",
-                              overflow: TextOverflow.ellipsis,
-                              style: kStoreAddress,
-                            ),
+                        ),
+                      ],
+                    ),
+                    Positioned(
+                      right: 0,
+                      top: 0,
+                      child: GestureDetector(
+                        onTap: () => Get.to(() => MapScreen()),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: kPaddingDefault * 2, vertical: kPaddingItems),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: const Color(0xffedc945),
                           ),
-                        ],
+                          child: Center(
+                            child: Text("Sửa", style: kEditConfirmBox),
+                          ),
+                        ),
                       ),
                     ),
                   ],
                 ),
-                Positioned(
-                  right: 0,
-                  top: 0,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: kPaddingDefault * 2, vertical: kPaddingItems),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: const Color(0xffedc945),
-                    ),
+              ),
+              const Spacer(),
+              SizedBox(
+                width: MediaQuery.of(context).size.width / 1.5,
+                child: GestureDetector(
+                  onTapCancel: () => onCancel(),
+                  onTapDown: (_) => onPressed(),
+                  onTapUp: (_) => onCancel(),
+                  child: FlatButton(
+                    onPressed: () => Get.back(),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                    highlightColor: const Color(0xffB2282D),
+                    color: const Color(0xffB2282D),
+                    splashColor: const Color(0xffD43E43),
                     child: Center(
-                      child: Text("Sửa", style: kEditConfirmBox),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const Spacer(),
-          SizedBox(
-            width: MediaQuery.of(context).size.width / 1.5,
-            child: GestureDetector(
-              onTapCancel: () => onCancel(),
-              onTapDown: (_) => onPressed(),
-              onTapUp: (_) => onCancel(),
-              child: FlatButton(
-                onPressed: () => Get.back(),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                highlightColor: const Color(0xffB2282D),
-                color: const Color(0xffB2282D),
-                splashColor: const Color(0xffD43E43),
-                child: Center(
-                  child: AnimatedOpacity(
-                    opacity: _opacity,
-                    curve: Curves.bounceIn,
-                    duration: const Duration(milliseconds: 200),
-                    child: Text(
-                      "Xác nhận",
-                      style: kStyleLoginButtonText_reverse,
+                      child: AnimatedOpacity(
+                        opacity: _opacity,
+                        curve: Curves.bounceIn,
+                        duration: const Duration(milliseconds: 200),
+                        child: Text(
+                          "Xác nhận",
+                          style: kStyleLoginButtonText_reverse,
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
+              const Spacer(flex: 2),
+            ],
           ),
-          const Spacer(flex: 2),
-        ],
-      ),
+        );
+      },
     );
   }
 }

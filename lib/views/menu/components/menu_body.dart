@@ -61,7 +61,6 @@ class menu_body extends StatelessWidget {
                         parent: AlwaysScrollableScrollPhysics(),
                       ),
                       onTap: (index) {
-                        print(index);
                         VerticalScrollableTabBarStatus.setIndex(index);
                       },
                       tabs: _controller.allCategory

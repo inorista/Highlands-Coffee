@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:seemon/constants/color_constants.dart';
 import 'package:seemon/constants/style_constants..dart';
+import 'package:seemon/controllers/home_controllers.dart';
+import 'package:seemon/models/branch.dart';
+import 'package:seemon/models/promo.dart';
 import 'package:unicons/unicons.dart';
 
 class home_appbar extends StatelessWidget with PreferredSizeWidget {
@@ -10,6 +14,8 @@ class home_appbar extends StatelessWidget with PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    HomeController _controller = Get.put(HomeController());
+
     return AppBar(
       leadingWidth: 0,
       centerTitle: false,

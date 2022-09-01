@@ -2,6 +2,8 @@ import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:seemon/controllers/home_controllers.dart';
+import 'package:seemon/injection.dart';
 import 'package:seemon/models/cart.dart';
 import 'package:seemon/models/product.dart';
 
@@ -50,26 +52,37 @@ class CartController extends GetxController {
     update();
   }
 
+  Future<void> increasePoint() async {
+    await FirebaseFirestore.instance
+        .collection("users")
+        .doc(auth?.phoneNumber)
+        .update({"point": FieldValue.increment(totalOnBill / 10000)});
+  }
+
   Future<void> postOrder() async {
     final id_order = "HC${rng.nextInt(89999999) + 10000000}";
     final postURL =
         await FirebaseFirestore.instance.collection("users").doc(auth?.phoneNumber).collection("processing");
     try {
+      String? branchName = Get.find<HomeController>().currentBranch?.branchName;
       postURL.add({
         "id_order": id_order,
         "total": totalOnBill,
         "quantity": totalQuantity,
         "cartItem": [
           ...List.generate(
-              cartItem.length,
-              (index) =>
-                  "${cartItem[index].item.tenThucuong}, ${cartItem[index].size}, ${cartItem[index].quantity}, ${cartItem[index].total}")
+            cartItem.length,
+            (index) =>
+                "${cartItem[index].item.tenThucuong}, ${cartItem[index].size}, ${cartItem[index].quantity}, ${cartItem[index].total}",
+          ),
         ],
         "status": "Đang chuẩn bị",
-        "branch": "Highlands Coffee - Lê Văn Sỹ",
+        "branch": "Highlands Coffee - ${branchName}",
         "createdAt": FieldValue.serverTimestamp(),
       });
+      increasePoint();
       cleanCart();
+
       Get.back();
     } catch (e) {
       print(e);

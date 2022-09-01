@@ -37,9 +37,9 @@ class phone_input extends GetWidget<AuthController> {
         }
 
         return Padding(
-          padding: EdgeInsets.only(top: kPaddingDefault * 4),
+          padding: const EdgeInsets.only(top: kPaddingDefault * 4),
           child: Container(
-            margin: EdgeInsets.symmetric(horizontal: kPaddingDefault * 3),
+            margin: const EdgeInsets.symmetric(horizontal: kPaddingDefault * 3),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -61,7 +61,7 @@ class phone_input extends GetWidget<AuthController> {
                           width: 25,
                         ),
                         Padding(
-                          padding: EdgeInsets.only(right: kPaddingDefault),
+                          padding: const EdgeInsets.only(right: kPaddingDefault),
                           child: Text("+84", style: kStyleLoginPrefixPhone),
                         ),
                         Expanded(
@@ -97,12 +97,12 @@ class phone_input extends GetWidget<AuthController> {
                 Opacity(
                   opacity: getOpacity(),
                   child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: kPaddingSize),
+                    padding: const EdgeInsets.symmetric(vertical: kPaddingSize),
                     child: Row(
                       children: [
-                        Icon(
+                        const Icon(
                           EvaIcons.alertCircleOutline,
-                          color: Color(0xffFF2702),
+                          color: const Color(0xffFF2702),
                           size: 20,
                         ),
                         Text(

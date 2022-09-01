@@ -14,6 +14,7 @@ import 'package:seemon/views/dashboard/dashboard_screen.dart';
 import 'package:seemon/views/login/login_screen.dart';
 import 'package:seemon/views/other/about_hc_screen.dart';
 import 'package:seemon/views/other/about_screen.dart';
+import 'package:seemon/views/other/confirm_dialog.dart';
 import 'package:seemon/views/update/update_screen.dart';
 
 class UserScreen extends StatelessWidget {
@@ -95,23 +96,7 @@ class UserScreen extends StatelessWidget {
               padding: const EdgeInsets.all(kPaddingDefault),
               child: GestureDetector(
                 onTap: () async {
-                  await CustomProgressDialog.future(
-                    context,
-                    blur: 5,
-                    future: Future.delayed(
-                      Duration(milliseconds: 500),
-                      () async {
-                        await _controller.logOut();
-                      },
-                    ),
-                    loadingWidget: Center(
-                      child: Container(
-                        alignment: Alignment.center,
-                        child: CupertinoActivityIndicator(),
-                      ),
-                    ),
-                    backgroundColor: Colors.transparent,
-                  );
+                  await showDialog(context: context, builder: (BuildContext context) => ConfirmLogoutDialog());
                 },
                 child: Row(
                   children: <Widget>[
@@ -166,7 +151,9 @@ class UserScreen extends StatelessWidget {
                               ),
                               Flexible(
                                 child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: kPaddingDefault * 2),
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: kPaddingDefault * 2,
+                                  ),
                                   child: getColumnInfo(),
                                 ),
                               ),

@@ -31,43 +31,50 @@ class _menu_appbarState extends State<menu_appbar> with TickerProviderStateMixin
     HomeController _controller = Get.put(HomeController());
     CartController _cart = Get.put(CartController());
     return AppBar(
-      leadingWidth: 150,
+      automaticallyImplyLeading: false,
+      leadingWidth: 400,
       elevation: 0,
       backgroundColor: Color(0xffa43533),
-      leading: Padding(
-        padding: EdgeInsets.only(top: 20),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 4, horizontal: 10),
-              child: Image.asset(
-                "assets/images/location.png",
-                height: 25,
-                width: 25,
-              ),
+      leading: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+            child: Image.asset(
+              "assets/images/location.png",
+              height: 25,
+              width: 25,
             ),
-            GestureDetector(
+          ),
+          Flexible(
+            child: GestureDetector(
               onTap: () => _controller.showChangeMethodBottomSheet(context),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  Spacer(flex: 2),
                   Text("Nhận món tại", style: kStyleTakeLocation),
-                  Spacer(flex: 6),
+                  Spacer(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Lê Văn Sỹ", style: kStyleLocation),
+                      Flexible(
+                        child: Text(
+                          "${_controller.currentBranch?.branchName}",
+                          style: kStyleLocation,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
                       Icon(EvaIcons.arrowDown, color: Colors.white, size: 14),
                     ],
                   ),
-                  Spacer(),
+                  Spacer(flex: 2),
                 ],
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
       /*bottom: PreferredSize(
         preferredSize: Size.fromHeight(35),

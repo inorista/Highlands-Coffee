@@ -94,7 +94,7 @@ var kStyleTitlePromo,
     kStyleTitleLocation = GoogleFonts.montserrat(
       fontSize: 15,
       fontWeight: FontWeight.w700,
-      color: Color(0xff221f20),
+      color: const Color(0xff221f20),
     );
 
 var kStyleDescriptionPromo = GoogleFonts.notoSans(
@@ -287,56 +287,56 @@ var kStyleCartLength = GoogleFonts.montserrat(
 var kStyleTitleAppbar_Cart = GoogleFonts.montserrat(
   fontSize: 15,
   fontWeight: FontWeight.w600,
-  color: Color(0xff333333),
+  color: const Color(0xff333333),
 );
 
 var kStyleActionText = GoogleFonts.montserrat(
   fontSize: 13,
   fontWeight: FontWeight.w600,
-  color: Color(0xffb59664),
+  color: const Color(0xffb59664),
 );
 
 var kOrderMethodCart = GoogleFonts.montserrat(
   fontSize: 20,
   fontWeight: FontWeight.w700,
-  color: Color(0xffb59664),
+  color: const Color(0xffb59664),
 );
 
 var kLocationCart = GoogleFonts.openSans(
   fontSize: 13,
   fontWeight: FontWeight.w500,
-  color: Color(0xff333333),
+  color: const Color(0xff333333),
 );
 
 var kInfomationCart = GoogleFonts.varelaRound(
   fontSize: 15,
   fontWeight: FontWeight.w500,
-  color: Color(0xff221f20),
+  color: const Color(0xff221f20),
   letterSpacing: 0.1,
 );
 
 var kListCart = GoogleFonts.montserrat(
   fontSize: 18,
   fontWeight: FontWeight.w700,
-  color: Color(0xff333333),
+  color: const Color(0xff333333),
 );
 
 var kStyleAddMoreCart = GoogleFonts.montserrat(
   fontSize: 14,
   fontWeight: FontWeight.w600,
-  color: Color(0xffb59664),
+  color: const Color(0xffb59664),
 );
 
 var kStylePlusIcon = GoogleFonts.montserrat(
   fontSize: 22,
   fontWeight: FontWeight.w500,
-  color: Color(0xffb59664),
+  color: const Color(0xffb59664),
 );
 
 var kStyleQuantityBox = GoogleFonts.openSans(
   fontSize: 11,
   fontWeight: FontWeight.w600,
-  color: Color(0xffb59664),
+  color: const Color(0xffb59664),
 );
 
 var kStyleTotal_OneCartItem = GoogleFonts.montserrat(
@@ -349,92 +349,92 @@ var kStyleTotal_OneCartItem = GoogleFonts.montserrat(
 var kStyleSize_OneCartItem = GoogleFonts.montserrat(
   fontSize: 12,
   fontWeight: FontWeight.w600,
-  color: Color(0xff666666),
+  color: const Color(0xff666666),
 );
 var kStyleDot = GoogleFonts.montserrat(
   fontSize: 18,
   fontWeight: FontWeight.w600,
-  color: Color(0xff666666),
+  color: const Color(0xff666666),
 );
 var kStyleNote_OneCartItem = GoogleFonts.montserrat(
   fontSize: 12,
   fontWeight: FontWeight.w500,
-  color: Color(0xff666666),
+  color: const Color(0xff666666),
 );
 
 var kStyleSubTotal = GoogleFonts.montserrat(
   fontSize: 12,
   fontWeight: FontWeight.w500,
-  color: Color(0xffb59664),
+  color: const Color(0xffb59664),
 );
 
 var kStyleDateAndTotal = GoogleFonts.montserrat(
   fontSize: 13,
   fontWeight: FontWeight.w500,
-  color: Color(0xff666666),
+  color: const Color(0xff666666),
 );
 
 var kStyleBranch = GoogleFonts.montserrat(
   fontSize: 14,
   fontWeight: FontWeight.w500,
-  color: Color(0xff333333),
+  color: const Color(0xff333333),
 );
 
 var kStyleBranchName = GoogleFonts.montserrat(
   fontSize: 20,
   fontWeight: FontWeight.w700,
-  color: Color(0xff333333),
+  color: const Color(0xff333333),
 );
 
 var kStyleDateOrderDetail = GoogleFonts.openSans(
   fontSize: 12,
   fontWeight: FontWeight.w500,
-  color: Color(0xff666666),
+  color: const Color(0xff666666),
 );
 var kStyleProductName = GoogleFonts.montserrat(
   fontSize: 14,
   fontWeight: FontWeight.w500,
-  color: Color(0xffb59664),
+  color: const Color(0xffb59664),
 );
 var kStyleQuantityOrderItems = GoogleFonts.openSans(
   fontSize: 13,
   fontWeight: FontWeight.w600,
-  color: Color(0xff666666),
+  color: const Color(0xff666666),
 );
 var kStyleTotalOrderItems = GoogleFonts.openSans(
   fontSize: 14,
   fontWeight: FontWeight.w600,
-  color: Color(0xff2d343c),
+  color: const Color(0xff2d343c),
 );
 
 var kStyleNote_CartItems = GoogleFonts.montserrat(
   fontSize: 13,
   fontWeight: FontWeight.w500,
-  color: Color(0xff666666),
+  color: const Color(0xff666666),
 );
 var kStyleAllSubtotal = GoogleFonts.openSans(
   fontSize: 14,
   fontWeight: FontWeight.w600,
-  color: Color(0xffb59664),
+  color: const Color(0xffb59664),
 );
 var kStyleTotal = GoogleFonts.montserrat(
   fontSize: 14,
   fontWeight: FontWeight.w600,
-  color: Color(0xffb59664),
+  color: const Color(0xffb59664),
   letterSpacing: 0.5,
 );
 
 var kStyleInfoOrder = GoogleFonts.openSans(
   fontSize: 12,
   fontWeight: FontWeight.w500,
-  color: Color(0xff2d343c),
+  color: const Color(0xff2d343c),
   letterSpacing: 0.6,
 );
 
 var kStyleInfoOrderTitle = GoogleFonts.openSans(
   fontSize: 11,
   fontWeight: FontWeight.w700,
-  color: Color(0xff2d343c),
+  color: const Color(0xff2d343c),
 );
 var kStyleBalance = GoogleFonts.montserrat(
   fontSize: 30,
@@ -472,13 +472,13 @@ var kStyleWelcomeUser = GoogleFonts.montserrat(
 var kStyleTitleUser = GoogleFonts.montserrat(
   fontSize: 17,
   fontWeight: FontWeight.w600,
-  color: Color(0xff221f20),
+  color: const Color(0xff221f20),
 );
 
 var kStylePartUser = GoogleFonts.montserrat(
   fontSize: 15,
   fontWeight: FontWeight.w500,
-  color: Color(0xff666666),
+  color: const Color(0xff666666),
 );
 
 var kStyleAboutTitleHeader = GoogleFonts.montserrat(
@@ -490,18 +490,18 @@ var kStyleAboutTitleHeader = GoogleFonts.montserrat(
 var kStyleAboutTitle = GoogleFonts.montserrat(
   fontSize: 20,
   fontWeight: FontWeight.w500,
-  color: Color(0xff221f20),
+  color: const Color(0xff221f20),
 );
 var kStyleAboutText = GoogleFonts.montserrat(
   fontSize: 13.5,
   fontWeight: FontWeight.w500,
-  color: Color(0xff221f20),
+  color: const Color(0xff221f20),
 );
 
 var kStyleVersion = GoogleFonts.montserrat(
   fontSize: 18,
   fontWeight: FontWeight.w600,
-  color: Color(0xff221f20),
+  color: const Color(0xff221f20),
 );
 var kStyleVersionText = GoogleFonts.montserrat(
   fontSize: 14,
@@ -511,54 +511,58 @@ var kStyleVersionText = GoogleFonts.montserrat(
 var kStyleLoginUser = GoogleFonts.montserrat(
   fontSize: 15,
   fontWeight: FontWeight.w600,
-  color: Color(0xffb34641),
+  color: const Color(0xffb34641),
 );
 var kStylePromoUser = GoogleFonts.montserrat(
   fontSize: 15,
   fontWeight: FontWeight.w500,
-  color: Color(0xff000000),
+  color: const Color(0xff000000),
 );
 var kStyleUpdateProfile = GoogleFonts.montserrat(
   fontSize: 15,
   fontWeight: FontWeight.w600,
-  color: Color(0xffb59664),
+  color: const Color(0xffb59664),
 );
 
 var kStyleLabelStar = GoogleFonts.montserrat(
   fontSize: 14,
   fontWeight: FontWeight.w500,
-  color: Color(0xffa53634),
+  color: const Color(0xffa53634),
 );
 
 var kStyleLabel = GoogleFonts.montserrat(
   fontSize: 15,
   fontWeight: FontWeight.w500,
-  color: Color(0xff221f20),
+  color: const Color(0xff221f20),
 );
 
 var kStyleHint = GoogleFonts.montserrat(
   fontSize: 15,
   fontWeight: FontWeight.w500,
-  color: Color(0xffc4c4c5),
+  color: const Color(0xffc4c4c5),
 );
 
 var kStyleInputs = GoogleFonts.montserrat(
   fontSize: 15,
   fontWeight: FontWeight.w500,
-  color: Color(0xff000000),
+  color: const Color(0xff000000),
 );
 
 var kStyleSelectedGender = GoogleFonts.montserrat(
   fontSize: 15,
   fontWeight: FontWeight.w600,
-  color: Color(0xffa43533),
+  color: const Color(0xffa43533),
 );
 var kStyleUnSelectedGender = GoogleFonts.montserrat(
   fontSize: 15,
   fontWeight: FontWeight.w600,
-  color: Color(0xff221f20),
+  color: const Color(0xff221f20),
 );
-
+var kStyleCancel = GoogleFonts.montserrat(
+  fontSize: 15,
+  fontWeight: FontWeight.w600,
+  color: Colors.white,
+);
 var kStyleOnSave = GoogleFonts.montserrat(
   fontSize: 14,
   fontWeight: FontWeight.w500,
@@ -567,5 +571,39 @@ var kStyleOnSave = GoogleFonts.montserrat(
 var kStyleChangeGender = GoogleFonts.montserrat(
   fontSize: 14,
   fontWeight: FontWeight.w600,
-  color: Color(0xff666666),
+  color: const Color(0xff666666),
+);
+
+var kStyleDialog = GoogleFonts.montserrat(
+  fontSize: 17,
+  fontWeight: FontWeight.w600,
+  color: const Color(0xff221f20),
+);
+var kStyleContentDialog = GoogleFonts.montserrat(
+  fontSize: 14,
+  fontWeight: FontWeight.w500,
+  color: const Color(0xff666666),
+);
+
+var kStyleBranchAddress = GoogleFonts.openSans(
+  fontSize: 11,
+  fontWeight: FontWeight.w500,
+  color: const Color(0xff555555),
+);
+
+var kStyleBranchNameMap = GoogleFonts.montserrat(
+  fontSize: 15,
+  fontWeight: FontWeight.w600,
+  color: const Color(0xff000000),
+);
+
+var kStyleListBranch = GoogleFonts.montserrat(
+  fontSize: 17,
+  fontWeight: FontWeight.w700,
+  color: const Color(0xff000000),
+);
+var kStyleCheckedBranch = GoogleFonts.openSans(
+  fontSize: 11,
+  fontWeight: FontWeight.w600,
+  color: const Color(0xff4fa06a),
 );

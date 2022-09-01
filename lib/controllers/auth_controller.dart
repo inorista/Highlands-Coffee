@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:seemon/controllers/home_controllers.dart';
 import 'package:seemon/injection.dart';
-import 'package:seemon/models/user.dart';
 
 import 'package:seemon/views/pinput/pinput_screen.dart';
 import 'dart:math';

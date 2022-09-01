@@ -48,3 +48,17 @@ khuyenmai tranh_thu_upsize = new khuyenmai(
     "Không áp dụng tại các quán ở Sân bay, VinWonders Phú Quốc và Dinh Độc Lập 2 (bên trong)",
   ],
 );
+
+khuyenmai momo = new khuyenmai(
+  id_khuyenmai: "promo${rng.nextInt(100000).toString()}",
+  anh_khuyenmai:
+      "https://firebasestorage.googleapis.com/v0/b/seemon-83eb8.appspot.com/o/promo%2FStandard.png?alt=media&token=45c45efe-c9f6-4e4d-a0ed-8a29eacee2a3",
+  tieude_khuyenmai: "🙆 PHIÊU CÙNG BẠN MỚI - HIGHLANDS TUNG CHIÊU",
+  mota_khuyenmai:
+      """🔥 Bạn mới tới chơi, đồ ngon cứ để Highlands mời. Chỉ cần nhập mã MMCAFE25K, bạn được giảm ngay 25% tối đa 25.000đ cho hóa đơn từ 80.000đ khi đặt món trên Mini App Highlands Coffee.""",
+  dieukien_khuyenmai: [
+    "Không có giá trị quy đổi thành tiền mặt",
+    "Không áp dụng với các chương trình ưu đãi khác",
+    "🕣 Chương trình diễn ra từ 05/08 - 31/08 với số lượng có hạn, có thể kết thúc sớm.",
+  ],
+);

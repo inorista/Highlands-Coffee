@@ -6,11 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:seemon/constants/color_constants.dart';
 import 'package:seemon/constants/padding_constants.dart';
 import 'package:seemon/constants/style_constants..dart';
 import 'package:seemon/injection.dart';
+import 'package:seemon/models/branch.dart';
 import 'package:seemon/models/category.dart';
 import 'package:seemon/models/promo.dart';
 import 'package:seemon/models/product.dart';
@@ -18,6 +20,9 @@ import 'package:seemon/views/login/login_screen.dart';
 import 'package:seemon/views/menu/components/bottom_sheet_change_method.dart';
 
 class HomeController extends GetxController with SingleGetTickerProviderMixin {
+  // MAP CONTROLLER
+  Completer<GoogleMapController> mapController = Completer();
+
   // CURRENT USER
   FirebaseAuth _auth = FirebaseAuth.instance;
   FirebaseAuth? get auth => this._auth;
@@ -40,6 +45,9 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
   // Controller products, news, promos container.
   var tabIndex = 0;
 
+  // Current Branch
+  branch? currentBranch = null;
+
   // Controller của PageView
   late PageController _pageController;
   PageController get pageController => this._pageController;
@@ -51,15 +59,20 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
   // Firestore access hot product
   final db_hotproduct = FirebaseFirestore.instance.collection("products");
   final db_promo = FirebaseFirestore.instance.collection("promo");
+  final db_branches = FirebaseFirestore.instance.collection("branches");
+
   Stream<QuerySnapshot>? db_process;
   Stream<DocumentSnapshot<Map<String, dynamic>>>? db_getPoint;
+
   // List thức uống nổi bật
   List<product> dataThucuongHot = [];
   List<product> listAllProduct = [];
   List<khuyenmai> listAllPromo = [];
+  List<branch> listBranch = [];
 
   @override
   void onInit() async {
+    fetchDataBranch();
     _pageController = PageController();
     _futureHotProduct = fetchDataHotProduct();
     _futureAllProduct = fetchAllProduct();
@@ -78,6 +91,7 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
         .snapshots();
 
     db_getPoint = await FirebaseFirestore.instance.collection("users").doc(_auth.currentUser?.phoneNumber).snapshots();
+    update();
     super.onInit();
   }
 
@@ -171,6 +185,25 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
     return listAllPromo;
   }
 
+  void fetchDataBranch() async {
+    listBranch = [];
+    QuerySnapshot<Map<String, dynamic>> datafromDB_branch = await db_branches.get();
+    final tempDataBranch = await datafromDB_branch.docs.map((e) => e.data()).toList();
+
+    listBranch = await tempDataBranch
+        .map(
+          (data) => branch(
+            branchName: data["branchName"],
+            branchAddress: data["branchAddress"],
+            branchLatitude: data["branchLatitude"],
+            branchLongitude: data["branchLongitude"],
+          ),
+        )
+        .toList();
+    currentBranch = listBranch[0];
+    update();
+  }
+
   void showLoginPage(BuildContext context) {
     showCupertinoModalBottomSheet(
       expand: true,
@@ -231,5 +264,36 @@ class HomeController extends GetxController with SingleGetTickerProviderMixin {
     } catch (e) {
       print("Lỗi ${e}");
     }
+  }
+
+  void addBranch(branch chinhanh) async {
+    try {
+      await db_branches.doc(chinhanh.branchName).set({
+        "branchName": chinhanh.branchName,
+        "branchAddress": chinhanh.branchAddress,
+        "branchLatitude": chinhanh.branchLatitude,
+        "branchLongitude": chinhanh.branchLongitude,
+      });
+    } catch (e) {
+      print("Lỗi ${e}");
+    }
+  }
+
+  void changeBranchAndAnime(branch selectedBranch) async {
+    currentBranch = selectedBranch;
+    update();
+    GoogleMapController controller = await mapController.future;
+    controller.animateCamera(
+      CameraUpdate.newCameraPosition(
+        CameraPosition(
+          target: LatLng(
+            selectedBranch.branchLatitude,
+            selectedBranch.branchLongitude,
+          ),
+          zoom: 16,
+        ),
+      ),
+    );
+    update();
   }
 }

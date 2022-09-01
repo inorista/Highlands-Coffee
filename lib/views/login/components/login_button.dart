@@ -61,7 +61,7 @@ class _login_buttonState extends State<login_button> {
         }
 
         return Padding(
-          padding: EdgeInsets.symmetric(vertical: kPaddingDefault * 2, horizontal: kPaddingDefault),
+          padding: const EdgeInsets.symmetric(vertical: kPaddingDefault * 2, horizontal: kPaddingDefault),
           child: GestureDetector(
             onTapCancel: () => onCancel(),
             onTapDown: (_) => onPressed(),
@@ -74,13 +74,13 @@ class _login_buttonState extends State<login_button> {
                 if (authController.isAcceptLicense == true) {
                   if (authController.checkingAuthPhone() == true) {
                     authController.signingwithPhoneNumber();
-                    Future.delayed(Duration(seconds: 2));
+                    Future.delayed(const Duration(seconds: 2));
                     Navigator.of(context).push(
                       /*MaterialWithModals*/ PageRouteBuilder(
-                        transitionDuration: Duration(milliseconds: 100),
-                        pageBuilder: (context, animation, anotherAnimation) => PinputScreen(),
+                        transitionDuration: const Duration(milliseconds: 100),
+                        pageBuilder: (context, animation, anotherAnimation) => const PinputScreen(),
                         transitionsBuilder: (context, animation, anotherAnimation, child) {
-                          var begin = Offset(1, 0);
+                          var begin = const Offset(1, 0);
                           var end = Offset.zero;
                           var tween = Tween(begin: begin, end: end);
                           var offsetAnimation = animation.drive(tween);
@@ -99,11 +99,11 @@ class _login_buttonState extends State<login_button> {
               minWidth: MediaQuery.of(context).size.width,
               color: getLoginButtonColor(),
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 13),
+                padding: const EdgeInsets.symmetric(vertical: 13),
                 child: AnimatedOpacity(
                   opacity: _opacity,
                   curve: Curves.bounceIn,
-                  duration: Duration(milliseconds: 200),
+                  duration: const Duration(milliseconds: 200),
                   child: Text(
                     "Tiếp Tục",
                     style: kStyleLoginButtonText_reverse,

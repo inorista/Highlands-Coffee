@@ -20,24 +20,24 @@ class HomeScreen extends StatelessWidget {
       init: HomeController(),
       builder: (_controller) {
         return Scaffold(
-          appBar: home_appbar(),
+          appBar: const home_appbar(),
           body: Container(
             height: double.infinity,
             child: SingleChildScrollView(
-              physics: BouncingScrollPhysics(
+              physics: const BouncingScrollPhysics(
                 parent: AlwaysScrollableScrollPhysics(),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  introduce(),
-                  register_promo(),
-                  promo_seeAll(),
-                  promo_pageview(),
-                  hot_products(),
+                  const introduce(),
+                  const register_promo(),
+                  const promo_seeAll(),
+                  const promo_pageview(),
+                  const hot_products(),
                   listview_hot_products(controller: _controller),
                   Padding(
-                    padding: EdgeInsets.all(kPaddingDefault * 2),
+                    padding: const EdgeInsets.all(kPaddingDefault * 2),
                     child: Container(
                       width: double.infinity,
                       child: Column(
@@ -50,7 +50,7 @@ class HomeScreen extends StatelessWidget {
                             width: 40,
                           ),
                           Padding(
-                            padding: EdgeInsets.symmetric(vertical: kPaddingDefault * 1.5),
+                            padding: const EdgeInsets.symmetric(vertical: kPaddingDefault * 1.5),
                             child: Text(
                               "Tin cuối rồi. Bạn thật tuyệt vời",
                               style: kStyleFooterText,

@@ -138,10 +138,7 @@ class introduce extends StatelessWidget {
                                       child: Row(
                                         crossAxisAlignment: CrossAxisAlignment.end,
                                         children: [
-                                          Text("${currentPoint.toString()}", style: kFirstLetterPoint),
-                                          Padding(
-                                              padding: EdgeInsets.only(bottom: kPaddingSize),
-                                              child: Text("/100", style: kStylePoints)),
+                                          Text("${currentPoint.toStringAsFixed(1)}", style: kFirstLetterPoint),
                                         ],
                                       ),
                                     ),

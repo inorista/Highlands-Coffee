@@ -38,7 +38,7 @@ class checkbox_license extends StatelessWidget {
         }
 
         return Padding(
-          padding: EdgeInsets.symmetric(vertical: kPaddingDefault),
+          padding: const EdgeInsets.symmetric(vertical: kPaddingDefault),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -66,7 +66,7 @@ class checkbox_license extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: kPaddingItems),
+                padding: const EdgeInsets.only(left: kPaddingItems),
                 child: Text(
                   "Đồng ý với ",
                   style: kStyleLicense_1,
